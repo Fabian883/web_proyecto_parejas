@@ -63,7 +63,6 @@ const products = [
 ];
 
 function Home() {
-
   const theme = useSelector(
     (state) => state.app.theme
   );
@@ -95,7 +94,7 @@ function Home() {
     float: left;
     width: 33.33%;
     padding: 15px;
-}
+  }
 */
 
 export default Home;
