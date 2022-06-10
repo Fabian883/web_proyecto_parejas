@@ -70,7 +70,7 @@ function Home() {
   return (
     <div>
       <Header />
-      <div className="flex gap-4 px-4 md:px-8 lg:px-20 py-4">
+      <div className=" grid grid-cols-4 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
         {products.map((p) => {
           return (
             <div key={`product_${p.id}`} className={`border ${theme.productBorder}`}>

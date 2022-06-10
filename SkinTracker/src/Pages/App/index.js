@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainContainer from "../../Component/MainContainer";
 import Spinner from "../../Component/Spinner";
+import Champs from "../Champs";
 import Home from "../Home";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Champs" element={<Champs />} />
         </Routes>
       </BrowserRouter>
     </MainContainer>
