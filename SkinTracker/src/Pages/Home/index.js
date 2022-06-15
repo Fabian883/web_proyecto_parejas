@@ -75,7 +75,7 @@ function Home() {
           return (
             <div key={`product_${p.id}`} className={`border ${theme.productBorder}`}>
               <div>
-                <img src={p.image} alt={p.skin} />
+                <a href="/Skin"> <img src={p.image}  alt={p.skin} /></a> 
               </div>
               <div className="p-4 text-center">
                 <p>{p.skin}</p>
@@ -90,6 +90,7 @@ function Home() {
 }
 
 /*
+  recordar pasar el p.image o name como parámetro
   .column {
     float: left;
     width: 33.33%;

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainContainer from "../../Component/MainContainer";
 import Spinner from "../../Component/Spinner";
 import Champs from "../Champs";
+import Skin from "../Skin";
 import Home from "../Home";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Champs" element={<Champs />} />
+          <Route path="/Skin" element={<Skin />} />
         </Routes>
       </BrowserRouter>
     </MainContainer>
