@@ -1,4 +1,5 @@
 import Header from "../../Component/Header";
+import Footer from "../../Component/Footer";
 import { useSelector } from "react-redux";
 
 const products = [
@@ -18,26 +19,28 @@ function Skin() {
     <div>
       <Header />
       <div
-        className="bg-local bg-no-repeat bg-cover bg-center bg-opacity-0
+        className="bg-local bg-no-repeat bg-cover bg-center 
        bg-[url('https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Taliyah_3.jpg')]"
       >
-        <div className="place-content-center 
-        grid grid-cols-[repeat(1,224px)] gap-4 h-54">
+        <div
+          className="pt-6 place-content-center 
+        grid grid-cols-[repeat(1,224px)] gap-4"
+        >
           <div
             className="flex items-center justify-center
-        shadow-lg rounded-lg bg-indigo-500"
+        shadow-lg rounded-lg bg-rose-500"
           >
-             <p>{products[0].skin}</p>
+            <p>{products[0].skin}</p>
           </div>
         </div>
+        
         <div className="flex items-center justify-center h-screen">
           {products.map((p) => {
             return (
               <div
                 key={`product_${p.id}`}
-                className={`border ${theme.productBorder} box: h-30 w-80`}
+                className={`flex border ${theme.productBorder} box: h-30 w-80`}
               >
-                
                 <div className="object-center text-center">
                   <img src={p.image} alt={p.skin} />
                 </div>
@@ -45,34 +48,63 @@ function Skin() {
             );
           })}
         </div>
-        <div className="place-content-center 
-        grid grid-cols-[repeat(4,112px)] gap-4 h-54">
+        <div
+          className="place-content-center 
+        grid grid-cols-[repeat(4,112px)] gap-4  h-54"
+        >
           <div
             className="flex items-center justify-center
-        shadow-lg rounded-lg bg-indigo-500"
+        shadow-lg rounded-lg bg-rose-500"
           >
             <p>Tipo</p>
           </div>
           <div
             className="flex items-center justify-center
-        shadow-lg rounded-lg bg-indigo-500"
+        shadow-lg rounded-lg bg-rose-500"
           >
             <p>Estado</p>
           </div>
           <div
             className="flex items-center justify-center
-        shadow-lg rounded-lg bg-indigo-500"
+        shadow-lg rounded-lg bg-rose-500"
           >
             <p>RP: {products[0].rp}</p>
           </div>
           <div
             className="flex items-center justify-center
-        shadow-lg rounded-lg bg-indigo-500"
+        shadow-lg rounded-lg bg-rose-500"
           >
-           <p>Fecha</p>
+            <p>Fecha</p>
           </div>
         </div>
+        <div
+          className="place-content-center 
+        grid grid-cols-[repeat(1,448px)] pt-6"
+        >
+          <div
+            className="items-center justify-center
+        shadow-lg rounded-lg bg-rose-500 text-center"
+          >
+            <p className="font-sans text-xl">Descripción</p>
+            <p className="font-sans text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et lacus sed lacus porta auctor et nec metus. Nullam finibus arcu eu dui pharetra, ut congue ante blandit. Vivamus sit amet mi et mauris mattis ullamcorper. Donec porttitor dapibus nibh, at luctus turpis euismod et. Suspendisse potenti. Integer dignissim in justo id vestibulum. Curabitur ligula ipsum, tristique ut tincidunt sit amet, cursus a diam. </p>
+          </div>
+        </div>
+        <div
+          className="place-content-center 
+        grid grid-cols-[repeat(1,448px)] pt-6 pb-10"
+        >
+          <a href="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Taliyah_3.jpg"> 
+            <div
+              className="items-center justify-center
+          shadow-lg rounded-lg bg-rose-500 text-center"
+            >
+              <p className="font-sans text-l">Haciendo click aquí, logrará redirigirse a una página autorizada para la venta de esta skin! </p>
+            </div>
+          </a>
+          
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }
