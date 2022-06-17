@@ -1,13 +1,14 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useSelector } from "react-redux";
+import { CgArrowLeftR } from "react-icons/cg";
 
 const products = [
   {
     id: 1,
     skin: "Taliyah Veraniega",
     image:
-      "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Taliyah_3.jpg",
+      "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Kindred_3.jpg",
     rp: 1350,
   },
 ];
@@ -20,8 +21,15 @@ function Skin() {
       <Header />
       <div
         className="bg-local bg-no-repeat bg-cover bg-center 
-       bg-[url('https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Taliyah_3.jpg')]"
+       bg-[url('https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Kindred_3.jpg')]"
       >
+        
+        <a href="/Skins"> 
+          <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40" >
+            
+          </CgArrowLeftR>
+        </a>
+        
         <div
           className="pt-6 place-content-center 
         grid grid-cols-[repeat(1,224px)] gap-4"

@@ -13,13 +13,15 @@ function Footer() {
           <p>Fabián Gonzales</p>
           <p>Jorim Wilson</p>
         </div>
-        <div className="px-20">
+        <div className="flex px-20">
           <BiMailSend>
 
           </BiMailSend>
+          @ucr.ac.cr
           <BiPhone>
             
           </BiPhone>
+          2511-2222
         </div>
       </div>
     </>
