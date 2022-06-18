@@ -21,11 +21,11 @@ function Header() {
   return (
     <>
       {showSearch && (
-        <Modal
+        <Modal 
           onClose={() => {
             setShowSearch(false);
           }}
-          title="Ingrese su búsqueda"
+          title="Qué busca?"
         >
           {/*todo lo que venga aqui es el children*/}
           <div className="w-full text-center">
@@ -33,8 +33,8 @@ function Header() {
               className="placeholder:text-white pl-4 w-full h-12 border-none bg-red-200 mb-4"
               placeholder="Buscar..."
             />
-            <button className="bg-white border-4 border-yellow-500 px-8 py-2">
-              Buscar
+            <button className="bg-white border-4 border-yellow-500 px-8 py-2 text-cyan-500">
+            Vamos!
             </button>
           </div>
         </Modal>
