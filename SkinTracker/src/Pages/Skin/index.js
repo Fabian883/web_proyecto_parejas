@@ -2,13 +2,13 @@ import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useSelector } from "react-redux";
 import { CgArrowLeftR } from "react-icons/cg";
+import yone from "../../images/champs/yone/yone.jpg";
 
 const products = [
   {
     id: 1,
     skin: "Taliyah Veraniega",
-    image:
-      "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Kindred_3.jpg",
+    image: yone,
     rp: 1350,
   },
 ];
@@ -21,7 +21,7 @@ function Skin() {
       <Header />
       <div
         className="bg-local bg-no-repeat bg-cover bg-center 
-       bg-[url('https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Kindred_3.jpg')]"
+       bg-[url('https://images.alphacoders.com/656/656584.jpg')]"
       >
         
         <a href="/Skins"> 
