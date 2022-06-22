@@ -15,7 +15,7 @@ const products = [
 
 function Skin() {
   const theme = useSelector((state) => state.app.theme);
-
+//const products = useSelector((state) => state.skin.products);
   return (
     <div>
       <Header />
