@@ -52,10 +52,10 @@ export const getSkins = createAsyncThunk('skin/getSkins', async (payload) => {
         },
         {
           id: 4,
-          skin: "Ashe Reina Cósmica",
+          skin: "Yasuo Luna Sangrienta",
           image:
-            "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ashe_11.jpg",
-          rp: 1350,
+            "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Yasuo_3.jpg",
+          rp: 975,
         },
         {
           id: 5,
@@ -80,13 +80,6 @@ export const getSkins = createAsyncThunk('skin/getSkins', async (payload) => {
         },
         {
           id: 8,
-          skin: "Yasuo Luna Sangrienta",
-          image:
-            "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Yasuo_3.jpg",
-          rp: 975,
-        },
-        {
-          id: 9,
           skin: "Yasuo Luna Sangrienta",
           image:
             "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Yasuo_3.jpg",

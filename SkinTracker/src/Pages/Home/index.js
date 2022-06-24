@@ -23,29 +23,9 @@ const products = [
   },
   {
     id: 4,
-    skin: "Ashe Reina Cósmica",
-    image: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ashe_11.jpg",
-    rp: 1350,
-  },
-  {
-    id: 5,
     skin: "Yasuo Luna Sangrienta",
     image: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Yasuo_3.jpg",
-    rp: 975,
-  }
-  ,
-  {
-    id: 6,
-    skin: "Yasuo Luna Sangrienta",
-    image: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Yasuo_3.jpg",
-    rp: 975,
-  }
-  ,
-  {
-    id: 7,
-    skin: "Yasuo Luna Sangrienta",
-    image: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Yasuo_3.jpg",
-    rp: 975,
+    rp: 1850,
   }
   ,
 ];
@@ -60,7 +40,7 @@ function Home() {
       <Header />
       <div
         className="bg-local bg-no-repeat bg-cover bg-center 
-       bg-[url('https://esports.as.com/2019/05/20/league-of-legends/campeones-League-of-Legends_1246985298_162511_1440x600.jpg')]"
+       bg-[url('https://images.alphacoders.com/656/656584.jpg')]"
       >
         
         <div
@@ -72,44 +52,7 @@ function Home() {
                   alt='https://esports.as.com/2019/05/20/league-of-legends/campeones-League-of-Legends_1246985298_162511_1440x600.jpg' />
                 </div>
         </div>
-        
-        <div
-          className="place-content-center 
-        grid grid-cols-[repeat(1,448px)] pt-10 pb-8"
-        >
-          <a href="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Taliyah_3.jpg"> 
-            <div
-              className="items-center justify-center
-          shadow-lg rounded-lg bg-rose-500 text-center"
-            >
-              <p className="font-sans text-l">Héchale un vistazo a las latest skins! </p>
-            </div>
-          </a>
-          
-        </div>
 
-        <div className=" grid grid-cols-7 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
-          {products.map((p) => {
-            return (
-              <div
-                key={`product_${p.id}`}
-                className={`border ${theme.productBorder}`}
-              >
-                <div>
-                  <a href="/Skin">
-                    {" "}
-                    <img src={p.image} alt={p.skin} />
-                  </a>
-                </div>
-                <div className="p-4 text-center">
-                  <p>{p.skin}</p>
-                  <p className={`${theme.priceTag}`}>RP-{p.rp}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        
         <div
           className="place-content-center 
         grid grid-cols-[repeat(1,448px)] pt-10 pb-8"
@@ -140,39 +83,12 @@ function Home() {
                 </div>
                 <div className="p-4 text-center">
                   <p>{p.skin}</p>
-                  <p className={`${theme.priceTag}`}>RP-{p.rp}</p>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <div
-          className="place-content-center 
-        grid grid-cols-[repeat(1,448px)] pt-6"
-        >
-          <div
-            className="items-center justify-center
-        shadow-lg rounded-lg bg-rose-500 text-center"
-          >
-            <p className="font-sans text-xl">Descripción</p>
-            <p className="font-sans text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et lacus sed lacus porta auctor et nec metus. Nullam finibus arcu eu dui pharetra, ut congue ante blandit. Vivamus sit amet mi et mauris mattis ullamcorper. Donec porttitor dapibus nibh, at luctus turpis euismod et. Suspendisse potenti. Integer dignissim in justo id vestibulum. Curabitur ligula ipsum, tristique ut tincidunt sit amet, cursus a diam. </p>
-          </div>
-        </div>
-        <div
-          className="place-content-center 
-        grid grid-cols-[repeat(1,448px)] pt-6 pb-10"
-        >
-          <a href="/Champs"> 
-            <div
-              className="items-center justify-center
-          shadow-lg rounded-lg bg-rose-500 text-center"
-            >
-              <p className="font-sans text-l">Haciendo click aquí, logrará visualizar a los campeones! </p>
-            </div>
-          </a>
-          
-        </div>
       </div>
       <Footer />
     </div>
