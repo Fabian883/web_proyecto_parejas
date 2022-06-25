@@ -10,10 +10,10 @@ function Footer() {
         </div>
         <div className="">
           <p>Developers de la aplicación:</p>
-          <p>Fabián Gonzales</p>
+          <p>Fabián Gonzalez</p>
           <p>Jorim Wilson</p>
         </div>
-        <div className="flex px-20">
+        <div className="flex px-40">
           <BiMailSend>
 
           </BiMailSend>

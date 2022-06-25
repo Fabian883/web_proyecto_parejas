@@ -2,7 +2,7 @@ import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useSelector } from "react-redux";
 
-import thumbnail_generic from "../../images/champs/thumbnail_generic.jpg";
+import thumbnail_generic from "../../images/champs/champ_thumbnail_generic.jpg";
 import thumbnail_skins from "../../images/champs/thumbnail_skins.jpg";
 import thumbnail_champs from "../../images/champs/thumbnail_champs.jpg";
 

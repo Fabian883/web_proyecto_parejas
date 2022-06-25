@@ -8,8 +8,6 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { getSkins } from "../../Slices/skinSlice";
 
-
-
 // List of all skins satisfing all the filters
 //const [filters, setFilters] = useState({minPrice:"", maxPrice:""});
 

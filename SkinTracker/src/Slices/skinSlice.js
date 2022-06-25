@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import thumbnail_generic from "../images/champs/thumbnail_generic.jpg";
+import thumbnail_generic from "../images/champs/skin_thumbnail_generic.jpg";
 
 const skinSlice = createSlice({
     name: 'skin',
