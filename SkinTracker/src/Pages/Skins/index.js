@@ -24,7 +24,7 @@ function Skins() {
   const theme = useSelector((state) => state.app.theme);
   const products = useSelector((state) => state.skin.products);
 
-  const [filters, setFilters] = useState({ minPrice: "", maxPrice: "" });
+  const [filters/*, setFilters*/] = useState({ minPrice: "", maxPrice: "" });
 
   const dispatch = useDispatch();
 
@@ -32,21 +32,11 @@ function Skins() {
     dispatch(getSkins({ filters }));
   }, [dispatch, filters]);
 
-  //esto no funciona y no se porque?
-  /*<Dropdown
-            options={options}
-            onClick={() => {}}
-            value={options[0]}
-            placeholder="weee"
-          ></Dropdown>*/
-
   return (
     <div>
       <Header />
-      <div
-        className="pt-20 bg-local bg-no-repeat bg-cover bg-center 
-       bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXAhX93ekTfLH299--3P15h8bMcVki0v5NTA&usqp=CAU')]"
-      >
+      <div className="pt-20 bg-local bg-no-repeat bg-cover bg-center 
+        bg-[url('https://images.alphacoders.com/656/656584.jpg')]">
         <a href="/">
           <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40"></CgArrowLeftR>
         </a>
@@ -67,13 +57,13 @@ function Skins() {
                 key={`product_${p.id}`}
                 className={`border ${theme.productBorder}`}
               >
-                <div>
+                <div className = "bg-black">
                   <a href="/Skin">
                     {" "}
                     <img src={p.image} alt={p.skin} />
                   </a>
                 </div>
-                <div className="p-4 text-center">
+                <div className="p-4 text-center bg-black">
                   <p>{p.skin}</p>
                   <p className={`${theme.priceTag}`}>RP-{p.rp}</p>
                 </div>
@@ -86,14 +76,5 @@ function Skins() {
     </div>
   );
 }
-
-/*
-  recordar pasar el p.image o  como parámetro
-  .column {
-    float: left;
-    width: 33.33%;
-    padding: 15px;
-  }
-*/
 
 export default Skins;

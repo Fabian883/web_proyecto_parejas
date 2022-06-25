@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+import thumbnail_generic from "../images/champs/thumbnail_generic.jpg";
+
 const skinSlice = createSlice({
     name: 'skin',
     initialState: {
@@ -31,59 +33,51 @@ export const getSkins = createAsyncThunk('skin/getSkins', async (payload) => {
     const products = [
         {
           id: 1,
-          skin: "Taliyah Veraniega",
-          image:
-            "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Taliyah_3.jpg",
+          skin: "Jax Baston Divino",
+          image: thumbnail_generic,
           rp: 1350,
         },
         {
           id: 2,
-          skin: "Akali Cazadora de Cabezas",
-          image:
-            "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Akali_7.jpg",
+          skin: "Jax Baston Divino",
+          image: thumbnail_generic,
           rp: 1350,
         },
         {
           id: 3,
-          skin: "Anivia Hielo Negro",
-          image:
-            "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Anivia_5.jpg",
-          rp: 1850,
+          skin: "Jax Baston Divino",
+          image: thumbnail_generic,
+          rp: 1350,
         },
         {
           id: 4,
-          skin: "Yasuo Luna Sangrienta",
-          image:
-            "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Yasuo_3.jpg",
-          rp: 975,
+          skin: "Jax Baston Divino",
+          image: thumbnail_generic,
+          rp: 1350,
         },
         {
           id: 5,
-          skin: "Yasuo Luna Sangrienta",
-          image:
-            "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Yasuo_3.jpg",
-          rp: 975,
+          skin: "Jax Baston Divino",
+          image: thumbnail_generic,
+          rp: 1350,
         },
         {
           id: 6,
-          skin: "Yasuo Luna Sangrienta",
-          image:
-            "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Yasuo_3.jpg",
-          rp: 975,
+          skin: "Jax Baston Divino",
+          image: thumbnail_generic,
+          rp: 1350,
         },
         {
           id: 7,
-          skin: "Yasuo Luna Sangrienta",
-          image:
-            "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Yasuo_3.jpg",
-          rp: 975,
+          skin: "Jax Baston Divino",
+          image: thumbnail_generic,
+          rp: 1350,
         },
         {
           id: 8,
-          skin: "Yasuo Luna Sangrienta",
-          image:
-            "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Yasuo_3.jpg",
-          rp: 975,
+          skin: "Jax Baston Divino",
+          image: thumbnail_generic,
+          rp: 1350,
         },
       ];
     return products;
