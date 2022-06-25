@@ -17,7 +17,7 @@ const champsSlice = createSlice({
                 state.loading = true;
             })
             .addCase(getChamps.fulfilled, (state, action) => {
-                state.products = action.payload;
+                state.champs_thumbnails = action.payload;
             })
             .addCase(getChamps.rejected, (state) => {
                 state.loading = false;
@@ -79,14 +79,14 @@ export const getChampsById = createAsyncThunk('champs/getChampsById', async (pay
     /*const skinFetch = await fetch("https://api.ticolitas.com/alertas");//
     const promoBody = await promoFetch.json();
     return promoBody[0].alerta;*/
-    const champs_thumbnail = [
+    const champs_thumbnails = [
         {
           id: 1,
           champ: "",
           thumbnail: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Taliyah_3.jpg",
         }
       ];
-    return champs_thumbnail;
+    return champs_thumbnails;
 });
 
 //export const { } = champsSlice.actions;

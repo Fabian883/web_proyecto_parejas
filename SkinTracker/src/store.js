@@ -4,12 +4,14 @@ import { persistReducer } from "redux-persist";
 import appSlice from "./Slices/appSlice";
 import userSlice from "./Slices/userSlice";
 import skinSlice from "./Slices/skinSlice";
+import champsSlice from "./Slices/champsSlice";
 
 // No sabemos como quitar el Card Slice sin romper el codigo
 const reducers = combineReducers({
   app: appSlice,
   user: userSlice,
-  skin: skinSlice
+  skin: skinSlice,
+  champs: champsSlice
 });
 
 const rootPersistConfig = {
