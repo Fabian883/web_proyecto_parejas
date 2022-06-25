@@ -25,16 +25,16 @@ function Header() {
           onClose={() => {
             setShowSearch(false);
           }}
-          title="Qué busca?"
+          title="¿Qué busca?"
         >
           {/*todo lo que venga aqui es el children*/}
           <div className="w-full text-center">
             <input
-              className="placeholder:text-white pl-4 w-full h-12 border-none bg-red-200 mb-4"
+              className="placeholder:text-white pl-4 w-full h-12 border-none bg-gray-400 mb-4"
               placeholder="Buscar..."
             />
-            <button className="bg-white border-4 border-yellow-500 px-8 py-2 text-cyan-500">
-            Vamos!
+            <button className="bg-white border-4 border-blue-800 px-8 py-2 text-cyan-500">
+            ¡Vamos!
             </button>
           </div>
         </Modal>
@@ -43,17 +43,11 @@ function Header() {
         <div className="w-1/2">
           <Logo width="w-60" height="h-20" /* CAMBIAR TAMAÑO DEL LOGO *//>
         </div>
-        <div className="w-1/2 flex gap-3 items-center justify-end">
+        <div className="w-1/2 pr-16 flex gap-3 items-center justify-end">
           <p>{user && user.nombre ? ` ¡Bienvenido ${user.nombre}!` : "¡Bienvenido!"}</p>
           <BiSearch
             onClick={() => {
               setShowSearch(true);
-            }}
-            className="cursor-pointer text-2xl"
-          />
-          <BiMoon
-            onClick={() => {
-              theme.name === "light" ? dispatch(toDark()) : dispatch(toLight());
             }}
             className="cursor-pointer text-2xl"
           />
@@ -64,12 +58,3 @@ function Header() {
 }
 
 export default Header;
-
-/*
-  Como enlazar algo:
-  import { Link } from "react-router-dom";
-    <Link to="/admin">
-      <BiUser className="cursor-pointer text-2xl" />
-    </Link>
-
-*/

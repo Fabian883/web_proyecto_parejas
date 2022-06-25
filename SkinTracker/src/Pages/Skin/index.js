@@ -2,13 +2,14 @@ import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useSelector } from "react-redux";
 import { CgArrowLeftR } from "react-icons/cg";
-import yone from "../../images/champs/yone/yone.jpg";
+
+import yone from "../../images/champs/yone/yone-spiritblossom.jpg";
 
 const product = {
   id: 1,
-  skin: "Yone, el imborrable",
+  skin: "Yone Spirit Blossom",
   image: yone,
-  rp: 1350,
+  rp: 975,
 };
 
 function Skin() {
@@ -22,17 +23,13 @@ function Skin() {
           <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40"></CgArrowLeftR>
         </a>
 
-        <div className = " py-24">
+        <div className = "container mx-auto px-40 py-24">
           <div className={`border ${theme.productBorder}`}>
-            <div className=" place-content-center grid grid-cols-[repeat(1,720px)]">
-              <div className="flex items-center justify-center shadow-lg bg-black">
-                <p>{product.skin}</p>
-              </div>
+            <div className="flex items-center justify-center shadow-lg bg-black">
+              <p>{product.skin}</p>
             </div>
-          </div>
-          <div className={`border ${theme.productBorder}`}>
             <div className="flex items-center justify-center">
-              <img className="w-1/3" src={product.image} alt={product.skin} />
+              <img src={product.image} alt={product.skin} />
             </div>
           </div>
           

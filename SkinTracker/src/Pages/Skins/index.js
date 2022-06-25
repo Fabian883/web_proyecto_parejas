@@ -33,7 +33,7 @@ function Skins() {
   return (
     <div>
       <Header />
-      <div className="pt-20 bg-local bg-no-repeat bg-cover bg-center 
+      <div className="pt-24 pb-24 bg-local bg-no-repeat bg-cover bg-center 
         bg-[url('https://images.alphacoders.com/656/656584.jpg')]">
         <a href="/">
           <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40"></CgArrowLeftR>
