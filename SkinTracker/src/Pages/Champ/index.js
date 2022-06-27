@@ -48,8 +48,8 @@ function Champ() {
     <div>
       <Header />
       <div className="bg-local bg-no-repeat bg-cover bg-center bg-[url('https://images.alphacoders.com/656/656584.jpg')]">
-        <a href="/Skins">
-          <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40"></CgArrowLeftR>
+        <a href="/Champs">
+          <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40 bg-black"></CgArrowLeftR>
         </a>
 
         <div className = "container mx-auto px-40 pt-24">
