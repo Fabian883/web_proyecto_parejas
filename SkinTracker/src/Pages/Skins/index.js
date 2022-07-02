@@ -1,34 +1,49 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
-import { useState, useEffect } from "react";
+import /*{ useState, useEffect }*/ * as react from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CgArrowLeftR } from "react-icons/cg";
 import { AiOutlineFilter } from "react-icons/ai";
-import Dropdown from "react-dropdown";
-import "react-dropdown/style.css";
 import { getSkins } from "../../Slices/skinSlice";
 
 // List of all skins satisfing all the filters
 //const [filters, setFilters] = useState({minPrice:"", maxPrice:""});
 
-const options = ["one", "two", "three"];
-
-function show() {
-
-}
+const options = [ {label: "one", value: "one"}, {label: "two", value: "two"}, {label: "three", value: "three"}];
 
 function Skins() {
 
   const theme = useSelector((state) => state.app.theme);
   const products = useSelector((state) => state.skin.products);
 
-  const [filters/*, setFilters*/] = useState({ minPrice: "", maxPrice: "" });
+  const [filters, setFilters] = react.useState({ minPrice: "", maxPrice: "" });
+  const [hide, setHide] = react.useState("hidden");
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  react.useEffect(() => {
     dispatch(getSkins({ filters }));
   }, [dispatch, filters]);
+
+  const handleChange = (event) => {
+    setFilters(event.target.value);
+  };
+
+  const show = (event) => {
+    setHide("block");
+  };
+
+  const Dropdown = ({ label, value, options, onChange}) => {
+    return (
+      <label display={hide} className="text-black absolute right-20 top-40">
+        <select label="Hello?" value={value} onChange={onChange}>
+          {options.map((option, index) => (
+            <option key={index} value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </label>
+    );
+  };
 
   return (
     <div>
@@ -38,14 +53,19 @@ function Skins() {
         <a href="/">
           <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40"></CgArrowLeftR>
         </a>
-        <AiOutlineFilter className="cursor-pointer text-3xl absolute right-20 top-40 " onClick={show()}>
-          <Dropdown
-            options={options}
-            display= "block"
-            value={options[0]}
-            placeholder="weee"
-          ></Dropdown>
+        <AiOutlineFilter className="cursor-pointer text-3xl absolute right-20 top-40" onCLick={show}>
+          
         </AiOutlineFilter>
+        <Dropdown 
+                    label="Hello?"
+                    options={options}
+                    value={filters}
+                    onChange={handleChange} 
+                    /> 
+        <div className="right-20 top-20">
+           
+        </div>
+             
         
 
         <div className=" grid grid-cols-4 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
