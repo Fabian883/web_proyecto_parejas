@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainContainer from "../../Component/MainContainer";
 import Spinner from "../../Component/Spinner";
 import Champs from "../Champs";
+import Champ from "../Champ";
 import Skins from "../Skins";
 import Skin from "../Skin";
 import Home from "../Home";
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Champs" element={<Champs />} />
+          <Route path="/Champ" element={<Champ />} />
           <Route path="/Skins" element={<Skins />} />
           <Route path="/Skin" element={<Skin />} />
         </Routes>

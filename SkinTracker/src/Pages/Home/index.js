@@ -2,7 +2,7 @@ import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useSelector } from "react-redux";
 
-import thumbnail_generic from "../../images/champs/champ_thumbnail_generic.jpg";
+import thumbnail_generic from "../../images/champs/skin_thumbnail_generic.jpg";
 import thumbnail_skins from "../../images/champs/thumbnail_skins.jpg";
 import thumbnail_champs from "../../images/champs/thumbnail_champs.jpg";
 
@@ -47,7 +47,7 @@ function Home() {
        bg-[url('https://images.alphacoders.com/656/656584.jpg')]"
       >
         
-        <div className=" grid grid-cols-2 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
+        <div className="pt-24 grid grid-cols-2 gap-4 px-4 md:px-8 lg:px-20 w-full">
             <div className={`border ${theme.productBorder}`}>
               <div className="p-4 text-center bg-black">
                 <p>Skins</p>
@@ -72,7 +72,7 @@ function Home() {
             </div>
         </div>
 
-        <div className="place-content-center grid grid-cols-[repeat(1,350px)] pt-10 pb-8">
+        <div className="place-content-center grid grid-cols-[repeat(1,350px)] pt-16 pb-8">
             <div className={`border ${theme.productBorder}`}>
               <div className="flex items-center justify-center shadow-lg bg-black ">
                 <p>¡Ultimos lanzamientos de Skins!</p>
@@ -80,7 +80,7 @@ function Home() {
             </div>
         </div>
 
-        <div className = " mb-5 fracaso total metiendole sizes">
+        <div className = "pb-24 mb-5 fracaso total metiendole sizes">
           <div className=" grid grid-cols-4 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
             {products.map((p) => {
               return (
