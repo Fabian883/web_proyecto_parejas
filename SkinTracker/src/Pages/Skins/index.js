@@ -9,7 +9,7 @@ import { getFilteredSkins } from "../../Slices/skinSlice";
 // List of all skins satisfing all the filters
 //const [filters, setFilters] = useState({minPrice:"", maxPrice:""});
 
-const options = [ {label: "one", value: "one"}, {label: "two", value: "two"}, {label: "three", value: "three"}];
+const options = [ {label: "Precio", value: "price"}, {label: "Nombre", value: "name"}, {label: "Fecha", value: "Date"}];
 
 function Skins() {
 
