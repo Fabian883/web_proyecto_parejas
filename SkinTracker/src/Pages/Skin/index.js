@@ -1,7 +1,7 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
-import { useSelector } from "react-redux";
 import { CgArrowLeftR } from "react-icons/cg";
+import { useDispatch, useSelector } from "react-redux";
 
 import yone from "../../images/champs/yone/yone-spiritblossom.jpg";
 
@@ -12,9 +12,13 @@ const product = {
   rp: 975,
 };
 
+
+
 function Skin() {
+  const dispatch = useDispatch();
   const theme = useSelector((state) => state.app.theme);
-  //const products = useSelector((state) => state.skin.products);
+  const products = useSelector((state) => state.skin.products[0]);
+
   return (
     <div>
       <Header />
@@ -29,7 +33,7 @@ function Skin() {
               <p>{product.skin}</p>
             </div>
             <div className="flex items-center justify-center">
-              <img src={product.image} alt={product.skin} />
+              <img src={product.image}  alt={product.skin} />
             </div>
           </div>
           

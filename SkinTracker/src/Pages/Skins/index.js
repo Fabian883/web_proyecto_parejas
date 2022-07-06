@@ -1,10 +1,10 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
-import /*{ useState, useEffect }*/ * as react from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CgArrowLeftR } from "react-icons/cg";
 import { AiOutlineFilter } from "react-icons/ai";
-import { getSkins } from "../../Slices/skinSlice";
+import { getFilteredSkins } from "../../Slices/skinSlice";
 
 // List of all skins satisfing all the filters
 //const [filters, setFilters] = useState({minPrice:"", maxPrice:""});
@@ -16,13 +16,13 @@ function Skins() {
   const theme = useSelector((state) => state.app.theme);
   const products = useSelector((state) => state.skin.products);
 
-  const [filters, setFilters] = react.useState({ minPrice: "", maxPrice: "" });
-  const [hide, setHide] = react.useState("hidden");
+  const [filters, setFilters] = useState("");
+  const [hide, setHide] = useState("hidden");
 
   const dispatch = useDispatch();
 
-  react.useEffect(() => {
-    dispatch(getSkins({ filters }));
+  useEffect(() => {//que es esto
+    dispatch(getFilteredSkins({ filters }));
   }, [dispatch, filters]);
 
   const handleChange = (event) => {
@@ -53,7 +53,7 @@ function Skins() {
         <a href="/">
           <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40"></CgArrowLeftR>
         </a>
-        <AiOutlineFilter className="cursor-pointer text-3xl absolute right-20 top-40" onCLick={show}>
+        <AiOutlineFilter className="cursor-pointer text-3xl absolute right-20 top-40" onClick={show}>
           
         </AiOutlineFilter>
         <Dropdown 
@@ -76,9 +76,9 @@ function Skins() {
                 className={`border ${theme.productBorder}`}
               >
                 <div className = "bg-black">
-                  <a href="/Skin">
+                  <a href="/Skin" >
                     {" "}
-                    <img src={p.image} alt={p.skin} />
+                    <img src={p.image} onClick={dispatch(products.getSkinsById(p))} alt={p.skin} />{/* aquí llamo al arreglo o a skins? */}
                   </a>
                 </div>
                 <div className="p-4 text-center bg-black">

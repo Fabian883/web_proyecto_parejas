@@ -21,16 +21,34 @@ const skinSlice = createSlice({
             })
             .addCase(getSkins.rejected, (state) => {
                 state.loading = false;
-                alert("ERROR AL PEDIR LAS ALERTAS");
+                alert("ERROR AL PEDIR LAS SKINS");
+            })
+            .addCase(getSkinsById.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(getSkinsById.fulfilled, (state, action) => {
+                state.products = action.payload;
+            })
+            .addCase(getSkinsById.rejected, (state) => {
+                state.loading = false;
+                alert("ERROR AL PEDIR LA SKIN");
             })
     }
 });
 
 export const getSkins = createAsyncThunk('skin/getSkins', async (payload) => {
-    /*const skinFetch = await fetch("https://api.ticolitas.com/alertas");//
-    const promoBody = await promoFetch.json();
-    return promoBody[0].alerta;*/
-    const products = [
+    const skinFetch = await fetch("https://localhost:7500/Skins");//
+    
+    const skinsData = await skinFetch.json();
+    if (skinFetch.status === 200) {
+      return skinsData;
+    } else {
+      return {
+          error: true,
+          message: skinsData.error.message,
+      }
+    }
+    /*const products = [
         {
           id: 1,
           skin: "Jax Baston Divino",
@@ -80,14 +98,34 @@ export const getSkins = createAsyncThunk('skin/getSkins', async (payload) => {
           rp: 1350,
         },
       ];
-    return products;
+    return products;*/
 });
 
 export const getSkinsById = createAsyncThunk('skin/getSkinsById', async (payload) => {
-    /*const skinFetch = await fetch("https://api.ticolitas.com/alertas");//
-    const promoBody = await promoFetch.json();
-    return promoBody[0].alerta;*/
-    const products = [
+    
+    const skinFetch = await fetch("https://localhost:7500/Skin", { //en esta dirección pongo la dirección del api
+        method: 'POST',
+        headers: {
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+            id: payload.id,
+            skin: payload.skin,
+            image: payload.image,
+            rp: payload.rp,
+        }),
+    });
+    const skinData = await skinFetch.json();
+    if (skinFetch.status === 200) {
+      return skinData;
+    } else {
+      return {
+          error: true,
+          message: skinData.error.message,
+      }
+    }
+    //después de devolverla dónde la muestro o queda guardado en products?
+    /*const products = [
         {
           id: 1,
           skin: "Taliyah Veraniega",
@@ -96,9 +134,30 @@ export const getSkinsById = createAsyncThunk('skin/getSkinsById', async (payload
           rp: 1350,
         }
       ];
-    return products;
+    return skinBody;*/
 });
 
+export const getFilteredSkins = createAsyncThunk('skin/getFilteredSkins', async (payload) => {
+    
+  const skinFetch = await fetch("https://localhost:7500/Skins", { //en esta dirección pongo la dirección del api
+      method: 'POST',
+      headers: {
+          "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+          filter: payload.filter,
+      }),
+  });
+  const skinData = await skinFetch.json();
+  if (skinFetch.status === 200) {
+    return skinData;
+  } else {
+    return {
+        error: true,
+        message: skinData.error.message,
+    }
+  }
+});
 //export const { } = skinSlice.actions;
 
 export default skinSlice.reducer;

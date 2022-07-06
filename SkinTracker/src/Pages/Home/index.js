@@ -1,6 +1,7 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getSkins } from "../../Slices/skinSlice";
 
 import thumbnail_generic from "../../images/champs/skin_thumbnail_generic.jpg";
 import thumbnail_skins from "../../images/champs/thumbnail_skins.jpg";
@@ -39,6 +40,8 @@ function Home() {
     (state) => state.app.theme
   );
 
+  const dispatch = useDispatch();
+
   return (
     <div>
       <Header />
@@ -55,7 +58,7 @@ function Home() {
               <div className = "bg-black">
                 <a href="/Skins">
                   {" "}
-                  <img src={thumbnail_skins} alt="thumbnail_skins" />
+                  <img src={thumbnail_skins} onClick={dispatch(getSkins())} alt="thumbnail_skins" />
                 </a>
               </div>
             </div>
