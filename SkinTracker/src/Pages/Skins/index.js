@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CgArrowLeftR } from "react-icons/cg";
 import { AiOutlineFilter } from "react-icons/ai";
-import { getFilteredSkins } from "../../Slices/skinSlice";
 
 // List of all skins satisfing all the filters
 //const [filters, setFilters] = useState({minPrice:"", maxPrice:""});
@@ -23,8 +22,9 @@ function Skins() {
 
 
   useEffect (()=> {
-    const getFilteredSkins = async(filter) => {
-      const skinFetch = await fetch("https://localhost:7500/Skins/filter=${filter}"); //en esta dirección pongo la dirección del api
+    const getFilteredSkins = async() => {
+      const skinFetch = await fetch(`https://localhost:7500/Skins?filter=${filter}`); //en esta dirección pongo la dirección del api
+      
       const skinData = await skinFetch.json();
       if (skinFetch.status === 200) {
         setSkins(skinData);

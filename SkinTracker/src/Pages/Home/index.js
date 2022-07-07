@@ -16,8 +16,8 @@ function Home() {
 
   useEffect (()=> {
     const getSkins = async() => {
-      const skinFetch = await fetch("https://localhost:7500/Skins");
-    
+      const skinFetch = await fetch("http://localhost:7500/skins");
+      console.log(skinFetch)
       const skinsData = await skinFetch.json();
       if (skinFetch.status === 200) {
         setSkins(skinsData);
@@ -42,7 +42,7 @@ function Home() {
                 <p>Skins</p>
               </div>
               <div className = "bg-black">
-                <a href="/Skins">
+                <a href="/skins">
                   {" "}
                   <img src={thumbnail_skins} alt="thumbnail_skins" />
                 </a>

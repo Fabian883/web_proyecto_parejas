@@ -22,8 +22,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Champs" element={<Champs />} />
           <Route path="/Champ" element={<Champ />} />
-          <Route path="/Skins" element={<Skins />} />
-          <Route path="/Skin" element={<Skin />} />
+          <Route path="/skins" element={<Skins />} />
+          <Route path="/skin" element={<Skin />} />
         </Routes>
       </BrowserRouter>
     </MainContainer>

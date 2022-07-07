@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CgArrowLeftR } from "react-icons/cg";
 import { AiOutlineFilter } from "react-icons/ai";
-import { getChamps } from "../../Slices/champsSlice";
 
 /* Esta pagina NO va a tener FILTROS */
 /* TODO: Quitar los filtros de las opciones */
