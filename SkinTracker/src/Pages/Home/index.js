@@ -1,46 +1,32 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { getSkins } from "../../Slices/skinSlice";
 
 import thumbnail_generic from "../../images/champs/skin_thumbnail_generic.jpg";
 import thumbnail_skins from "../../images/champs/thumbnail_skins.jpg";
 import thumbnail_champs from "../../images/champs/thumbnail_champs.jpg";
-
-const products = [
-  {
-    id: 1,
-    skin: "Jax Baston Divino",
-    image: thumbnail_generic,
-    rp: 1350,
-  },
-  {
-    id: 2,
-    skin: "Jax Baston Divino",
-    image: thumbnail_generic,
-    rp: 1350,
-  },
-  {
-    id: 3,
-    skin: "Jax Baston Divino",
-    image: thumbnail_generic,
-    rp: 1350,
-  },
-  {
-    id: 4,
-    skin: "Jax Baston Divino",
-    image: thumbnail_generic,
-    rp: 1350,
-  }
-  ,
-];
+import { useEffect, useState } from "react";
 
 function Home() {
   const theme = useSelector(
     (state) => state.app.theme
   );
 
-  const dispatch = useDispatch();
+  const [skins, setSkins] = useState([]);
+
+  useEffect (()=> {
+    const getSkins = async() => {
+      const skinFetch = await fetch("https://localhost:7500/Skins");
+    
+      const skinsData = await skinFetch.json();
+      if (skinFetch.status === 200) {
+        setSkins(skinsData);
+      } else {
+        setSkins([]);
+      }
+    }
+    getSkins();
+  },[])
 
   return (
     <div>
@@ -58,7 +44,7 @@ function Home() {
               <div className = "bg-black">
                 <a href="/Skins">
                   {" "}
-                  <img src={thumbnail_skins} onClick={dispatch(getSkins())} alt="thumbnail_skins" />
+                  <img src={thumbnail_skins} alt="thumbnail_skins" />
                 </a>
               </div>
             </div>
@@ -85,7 +71,7 @@ function Home() {
 
         <div className = "pb-24 mb-5 fracaso total metiendole sizes">
           <div className=" grid grid-cols-4 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
-            {products.map((p) => {
+            {skins.map((p) => {
               return (
                 <div
                   key={`product_${p.id}`}

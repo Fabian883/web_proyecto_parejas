@@ -16,17 +16,27 @@ function Skins() {
   const theme = useSelector((state) => state.app.theme);
   const products = useSelector((state) => state.skin.products);
 
-  const [filters, setFilters] = useState("");
+  const [filter, setFilter] = useState("");
+  const [skins, setSkins] = useState([]);
   const [hide, setHide] = useState("hidden");
 
-  const dispatch = useDispatch();
 
-  useEffect(() => {//que es esto
-    dispatch(getFilteredSkins({ filters }));
-  }, [dispatch, filters]);
+
+  useEffect (()=> {
+    const getFilteredSkins = async(filter) => {
+      const skinFetch = await fetch("https://localhost:7500/Skins/filter=${filter}"); //en esta dirección pongo la dirección del api
+      const skinData = await skinFetch.json();
+      if (skinFetch.status === 200) {
+        setSkins(skinData);
+      } else {
+        setSkins([]);
+      }
+    }
+    getFilteredSkins();
+  },[filter])
 
   const handleChange = (event) => {
-    setFilters(event.target.value);
+    setFilter(event.target.value);
   };
 
   const show = (event) => {
@@ -59,7 +69,7 @@ function Skins() {
         <Dropdown 
                     label="Hello?"
                     options={options}
-                    value={filters}
+                    value={filter}
                     onChange={handleChange} 
                     /> 
         <div className="right-20 top-20">
@@ -69,7 +79,7 @@ function Skins() {
         
 
         <div className=" grid grid-cols-4 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
-          {products.map((p) => {
+          {skins.map((p) => {
             return (
               <div
                 key={`product_${p.id}`}
@@ -78,7 +88,7 @@ function Skins() {
                 <div className = "bg-black">
                   <a href="/Skin" >
                     {" "}
-                    <img src={p.image} onClick={dispatch(products.getSkinsById(p))} alt={p.skin} />{/* aquí llamo al arreglo o a skins? */}
+                    <img src={p.image}  alt={p.skin} />{/* aquí llamo al arreglo o a skins? */}
                   </a>
                 </div>
                 <div className="p-4 text-center bg-black">

@@ -13,16 +13,6 @@ const skinSlice = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(getSkins.pending, (state) => {
-                state.loading = true;
-            })
-            .addCase(getSkins.fulfilled, (state, action) => {
-                state.products = action.payload;
-            })
-            .addCase(getSkins.rejected, (state) => {
-                state.loading = false;
-                alert("ERROR AL PEDIR LAS SKINS");
-            })
             .addCase(getSkinsById.pending, (state) => {
                 state.loading = true;
             })
@@ -37,7 +27,7 @@ const skinSlice = createSlice({
 });
 
 export const getSkins = createAsyncThunk('skin/getSkins', async (payload) => {
-    const skinFetch = await fetch("https://localhost:7500/Skins");//
+  /*  const skinFetch = await fetch("https://localhost:7500/Skins");
     
     const skinsData = await skinFetch.json();
     if (skinFetch.status === 200) {
@@ -48,7 +38,7 @@ export const getSkins = createAsyncThunk('skin/getSkins', async (payload) => {
           message: skinsData.error.message,
       }
     }
-    /*const products = [
+    const products = [
         {
           id: 1,
           skin: "Jax Baston Divino",

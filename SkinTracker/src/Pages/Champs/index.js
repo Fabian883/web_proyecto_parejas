@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CgArrowLeftR } from "react-icons/cg";
 import { AiOutlineFilter } from "react-icons/ai";
-import Dropdown from "react-dropdown";
-import "react-dropdown/style.css";
 import { getChamps } from "../../Slices/champsSlice";
 
 /* Esta pagina NO va a tener FILTROS */
@@ -20,14 +18,8 @@ function show() {
 function Champs() {
   const theme = useSelector((state) => state.app.theme);
   const champs_thumbnails = useSelector((state) => state.champs.champs_thumbnails);
-
-  const [filters/*, setFilters*/] = useState({ minPrice: "", maxPrice: "" });
-
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getChamps({ filters }));
-  }, [dispatch, filters]);
 
   return (
     <div>
@@ -37,14 +29,7 @@ function Champs() {
         <a href="/">
           <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40"></CgArrowLeftR>
         </a>
-        <AiOutlineFilter className="cursor-pointer text-3xl absolute right-20 top-40 " onClick={show()}>
-          <Dropdown
-            options={options}
-            display= "block"
-            value={options[0]}
-            placeholder="weee"
-          ></Dropdown>
-        </AiOutlineFilter>
+        
         
 
         <div className=" grid grid-cols-4 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
