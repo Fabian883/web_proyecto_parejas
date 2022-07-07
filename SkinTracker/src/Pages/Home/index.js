@@ -16,7 +16,7 @@ function Home() {
 
   useEffect (()=> {
     const getSkins = async() => {
-      const skinFetch = await fetch("http://localhost:7500/skins");
+      const skinFetch = await fetch("http://localhost:7500/skins?pageSize=10");
       console.log(skinFetch)
       const skinsData = await skinFetch.json();
       if (skinFetch.status === 200) {

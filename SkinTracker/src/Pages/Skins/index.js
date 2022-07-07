@@ -1,7 +1,7 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { CgArrowLeftR } from "react-icons/cg";
 import { AiOutlineFilter } from "react-icons/ai";
 
@@ -13,17 +13,15 @@ const options = [ {label: "Precio", value: "price"}, {label: "Nombre", value: "n
 function Skins() {
 
   const theme = useSelector((state) => state.app.theme);
-  const products = useSelector((state) => state.skin.products);
 
   const [filter, setFilter] = useState("");
   const [skins, setSkins] = useState([]);
   const [hide, setHide] = useState("hidden");
 
-
-
   useEffect (()=> {
     const getFilteredSkins = async() => {
-      const skinFetch = await fetch(`https://localhost:7500/Skins?filter=${filter}`); //en esta dirección pongo la dirección del api
+      console.log(filter)
+      const skinFetch = await fetch(`http://localhost:7500/skins?filter=${filter}`); //en esta dirección pongo la dirección del api
       
       const skinData = await skinFetch.json();
       if (skinFetch.status === 200) {
@@ -46,7 +44,7 @@ function Skins() {
   const Dropdown = ({ label, value, options, onChange}) => {
     return (
       <label display={hide} className="text-black absolute right-20 top-40">
-        <select label="Hello?" value={value} onChange={onChange}>
+        <select label={label} value={value} onChange={onChange}>
           {options.map((option, index) => (
             <option key={index} value={option.value}>{option.label}</option>
           ))}
@@ -86,7 +84,8 @@ function Skins() {
                 className={`border ${theme.productBorder}`}
               >
                 <div className = "bg-black">
-                  <a href="/Skin" >
+                  <a href="/skin" >
+
                     {" "}
                     <img src={p.image}  alt={p.skin} />{/* aquí llamo al arreglo o a skins? */}
                   </a>

@@ -20,11 +20,12 @@ const product = {
 
 function Skin() {
   const [skin, setSkin] = useState([]);
+  const [skinId, setSkinId] = useState(1);
   const theme = useSelector((state) => state.app.theme);
   
   useEffect (()=> {
   const getSkinById = async() => {
-    const skinFetch = await fetch(`https://localhost:7500/Skin?id=${skin}`); //en esta dirección pongo la dirección del api
+    const skinFetch = await fetch(`http://localhost:7500/skins/:id=${skinId}`); //en esta dirección pongo la dirección del api
     const skinData = await skinFetch.json();
     if (skinFetch.status === 200) {
       setSkin(skinData);
