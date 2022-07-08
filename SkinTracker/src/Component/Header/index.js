@@ -1,22 +1,36 @@
-import { useState } from "react";
-import { BiSearch, BiMoon } from "react-icons/bi";
-import { useSelector, useDispatch } from "react-redux";
+import { BiSearch } from "react-icons/bi";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import Logo from "../Logo";
 import Modal from "../Modal";
-import { toLight, toDark } from "../../Slices/appSlice";
 
 
 function Header() {
   const [showSearch, setShowSearch] = useState(false);
-  
-  const dispatch = useDispatch();
+  const [search, setSearch] = useState("");
+  const [skins, setSkins] = useState([]);
 
-  const theme = useSelector(
-    (state) => state.app.theme
-  );
+  useEffect (()=> {
+    const getSkins = async() => {
+      const skinFetch = await fetch("http://localhost:7500/skins?filter=name&page=1&items=1");
+      console.log(search)
+      const skinsData = await skinFetch.json();
+      if (skinFetch.status === 200) {
+        setSkins(skinsData);
+      } else {
+        setSkins([]);
+      }
+    }
+    getSkins();
+  },[search])
+  
   const user = useSelector(
     (state) => state.user.user
   );
+
+  const lookUp = (event) => {
+    setSearch(event.target.value);
+  };
 
   return (
     <>
@@ -29,7 +43,7 @@ function Header() {
         >
           {/*todo lo que venga aqui es el children*/}
           <div className="w-full text-center">
-            <input
+            <input onChange={lookUp}
               className="placeholder:text-white pl-4 w-full h-12 border-none bg-gray-400 mb-4"
               placeholder="Buscar..."
             />

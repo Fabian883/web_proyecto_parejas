@@ -1,6 +1,6 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import thumbnail_generic from "../../images/champs/skin_thumbnail_generic.jpg";
 import thumbnail_skins from "../../images/champs/thumbnail_skins.jpg";

@@ -2,7 +2,7 @@ import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { CgArrowLeftR, CgArrowRightR } from "react-icons/cg";
+import { CgChevronLeftR, CgChevronRightR, CgChevronDoubleLeftR, CgChevronDoubleRightR, CgArrowLeftR } from "react-icons/cg";
 import { AiOutlineFilter } from "react-icons/ai";
 
 // List of all skins satisfing all the filters
@@ -32,6 +32,14 @@ function Skins() {
     }
     getFilteredSkins();
   },[filter, currentPage])
+
+  const setFirst = (event) => {
+    setCurrentPage(1);
+  };
+
+  const setLast = (event) => {
+    setCurrentPage(2);
+  };
 
   const changePrevious = (event) => {
     if (currentPage > 1){
@@ -111,11 +119,13 @@ function Skins() {
             );
           })}
         </div>
-        {/*<button onClick={changePrevious}>*/}
-        <CgArrowLeftR onClick={changePrevious} className="cursor-pointer text-3xl sticky left-20 bottom-10"></CgArrowLeftR>
-        {/*</button>*/}
-        <CgArrowRightR onClick={changeNext} className="cursor-pointer text-3xl absolute right-20 bottom-10"></CgArrowRightR>
+
+        <CgChevronDoubleLeftR onClick={setFirst} className="cursor-pointer text-3xl sticky left-96 bottom-10"></CgChevronDoubleLeftR>
+        <CgChevronLeftR onClick={changePrevious} className="cursor-pointer text-3xl absolute left-1/3 right-5 bottom-10"></CgChevronLeftR>
         
+        <CgChevronRightR onClick={changeNext} className="cursor-pointer text-3xl absolute right-1/3 bottom-10"></CgChevronRightR>
+        <CgChevronDoubleRightR onClick={setLast} className="cursor-pointer text-3xl absolute right-96 bottom-10"></CgChevronDoubleRightR>
+
       </div>
       <Footer />
     </div>

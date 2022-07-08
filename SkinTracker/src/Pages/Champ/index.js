@@ -2,6 +2,7 @@ import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useSelector } from "react-redux";
 import { CgArrowLeftR } from "react-icons/cg";
+import { useState, useEffect } from "react";
 
 import yone from "../../images/champs/yone/yone.jpg";
 import yone_skin from "../../images/champs/yone/thumbnail-yone-spiritblossom.jpg";
@@ -43,7 +44,23 @@ const products = [
 
 function Champ() {
   const theme = useSelector((state) => state.app.theme);
-  //const products = useSelector((state) => state.skin.products);
+
+  const [skins, setSkins] = useState([]);
+
+  useEffect (()=> {
+    const getSkins = async() => {
+      const skinFetch = await fetch("http://localhost:7500/champs?filter=date&page=1&items=4");
+      console.log(skinFetch)
+      const skinsData = await skinFetch.json();
+      if (skinFetch.status === 200) {
+        setSkins(skinsData);
+      } else {
+        setSkins([]);
+      }
+    }
+    getSkins();
+  },[])
+
   return (
     <div>
       <Header />
@@ -76,7 +93,7 @@ function Champ() {
 
         <div className = "pb-24">
           <div className=" grid grid-cols-4 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
-            {products.map((p) => {
+            {skins.map((p) => {
               return (
                 <div
                   key={`product_${p.id}`}

@@ -14,11 +14,11 @@ function Footer() {
           <p>Jorim Wilson</p>
         </div>
         <div className="flex px-40">
-          <BiMailSend>
+          <BiMailSend className="text-3xl">
 
-          </BiMailSend>
+          </BiMailSend >
           @ucr.ac.cr
-          <BiPhone>
+          <BiPhone className="text-3xl"> 
             
           </BiPhone>
           2511-2222
