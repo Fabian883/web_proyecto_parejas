@@ -22,8 +22,7 @@ function Skins() {
   useEffect (()=> {
     const getFilteredSkins = async() => {
       console.log(currentPage)
-      const skinFetch = await fetch(`http://localhost:7500/skins?filter=${filter}&page=${currentPage}`); //en esta dirección pongo la dirección del api
-      //const skinFetch = await fetch(`http://localhost:7500/skins?filter=${filter}`);
+      const skinFetch = await fetch(`http://localhost:7500/skins?filter=${filter}&page=${currentPage}&items=10`); //en esta dirección pongo la dirección del api
       const skinData = await skinFetch.json();
       if (skinFetch.status === 200) {
         setSkins(skinData);
@@ -113,7 +112,7 @@ function Skins() {
           })}
         </div>
         {/*<button onClick={changePrevious}>*/}
-        <CgArrowLeftR onClick={changePrevious} className="cursor-pointer text-3xl absolute left-20 bottom-10"></CgArrowLeftR>
+        <CgArrowLeftR onClick={changePrevious} className="cursor-pointer text-3xl sticky left-20 bottom-10"></CgArrowLeftR>
         {/*</button>*/}
         <CgArrowRightR onClick={changeNext} className="cursor-pointer text-3xl absolute right-20 bottom-10"></CgArrowRightR>
         
