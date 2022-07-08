@@ -2,27 +2,28 @@ import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { CgArrowLeftR } from "react-icons/cg";
+import { CgArrowLeftR, CgArrowRightR } from "react-icons/cg";
 import { AiOutlineFilter } from "react-icons/ai";
 
 // List of all skins satisfing all the filters
 //const [filters, setFilters] = useState({minPrice:"", maxPrice:""});
 
-const options = [ {label: "Precio", value: "price"}, {label: "Nombre", value: "name"}, {label: "Fecha", value: "Date"}];
+const options = [ {label: "Precio", value: "price"}, {label: "Nombre", value: "name"}, {label: "Fecha", value: "date"}];
 
 function Skins() {
 
   const theme = useSelector((state) => state.app.theme);
 
   const [filter, setFilter] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const [skins, setSkins] = useState([]);
   const [hide, setHide] = useState("hidden");
 
   useEffect (()=> {
     const getFilteredSkins = async() => {
-      console.log(filter)
-      const skinFetch = await fetch(`http://localhost:7500/skins?filter=${filter}`); //en esta dirección pongo la dirección del api
-      
+      console.log(currentPage)
+      const skinFetch = await fetch(`http://localhost:7500/skins?filter=${filter}&page=${currentPage}`); //en esta dirección pongo la dirección del api
+      //const skinFetch = await fetch(`http://localhost:7500/skins?filter=${filter}`);
       const skinData = await skinFetch.json();
       if (skinFetch.status === 200) {
         setSkins(skinData);
@@ -31,7 +32,20 @@ function Skins() {
       }
     }
     getFilteredSkins();
-  },[filter])
+  },[filter, currentPage])
+
+  const changePrevious = (event) => {
+    if (currentPage > 1){
+      setCurrentPage(currentPage-1);
+    }
+  };
+
+  const changeNext = (event) => {
+    if (currentPage < 2){//ese dos es la cantidad total de páginas que no e como conseguir en el front pero sí en el back
+      setCurrentPage(currentPage+1);
+    }
+    
+  };
 
   const handleChange = (event) => {
     setFilter(event.target.value);
@@ -98,6 +112,11 @@ function Skins() {
             );
           })}
         </div>
+        {/*<button onClick={changePrevious}>*/}
+        <CgArrowLeftR onClick={changePrevious} className="cursor-pointer text-3xl absolute left-20 bottom-10"></CgArrowLeftR>
+        {/*</button>*/}
+        <CgArrowRightR onClick={changeNext} className="cursor-pointer text-3xl absolute right-20 bottom-10"></CgArrowRightR>
+        
       </div>
       <Footer />
     </div>
