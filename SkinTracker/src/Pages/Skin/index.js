@@ -1,10 +1,11 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { CgArrowLeftR } from "react-icons/cg";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
 import yone from "../../images/champs/yone/yone-spiritblossom.jpg";
+import { useParams } from "react-router-dom";
 
 const product = {
   id: 1,
@@ -20,12 +21,16 @@ const product = {
 
 function Skin() {
   const [skin, setSkin] = useState([]);
-  const [skinId, setSkinId] = useState(1);
+  
   const theme = useSelector((state) => state.app.theme);
   
+  const {id} = useParams();
+
   useEffect (()=> {
   const getSkinById = async() => {
-    const skinFetch = await fetch(`http://localhost:7500/skins/:id=${skinId}`); //en esta dirección pongo la dirección del api
+    console.log(id)
+    const skinFetch = await fetch(`http://localhost:7500/skins/${id}`);
+     //en esta dirección pongo la dirección del api
     const skinData = await skinFetch.json();
     if (skinFetch.status === 200) {
       setSkin(skinData);
@@ -34,7 +39,7 @@ function Skin() {
     }
   }
   getSkinById();
-})
+  }, [id])
 
   return (
     <div>

@@ -4,16 +4,13 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { AiOutlineFilter } from "react-icons/ai";
 import { CgChevronLeftR, CgChevronRightR, CgChevronDoubleLeftR, CgChevronDoubleRightR, CgArrowLeftR } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 
 /* Esta pagina NO va a tener FILTROS */
 /* TODO: Quitar los filtros de las opciones */
 
 const options = ["one", "two", "three"];
-
-function show() {
-
-}
 
 function Champs() {
   const theme = useSelector((state) => state.app.theme);
@@ -79,10 +76,11 @@ function Champs() {
                 className={`border ${theme.productBorder}`}
               >
                 <div className = "bg-black">
-                  <a href="/Champ">
-                    {" "}
-                    <img src={ct.image} alt={ct.skin} />
-                  </a>
+                <Link to={`/champ/${ct.id}`} >
+
+                {" "}
+                <img src={ct.image}  alt={ct.skin} />{/* aquí llamo al arreglo o a skins? */}
+                </Link>
                 </div>
                 <div className="p-4 text-center bg-black">
                   <p>{ct.skin}</p>

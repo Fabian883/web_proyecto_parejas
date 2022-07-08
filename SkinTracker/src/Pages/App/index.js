@@ -21,9 +21,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/champs" element={<Champs />} />
-          <Route path="/champ" element={<Champ />} />
+          <Route path="/champ/:id" element={<Champ />} />
           <Route path="/skins" element={<Skins />} />
-          <Route path="/skin" element={<Skin />} />
+          <Route path="/skin/:id" element={<Skin />} />
         </Routes>
       </BrowserRouter>
     </MainContainer>

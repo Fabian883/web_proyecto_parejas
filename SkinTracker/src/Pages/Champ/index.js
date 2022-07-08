@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 import yone from "../../images/champs/yone/yone.jpg";
 import yone_skin from "../../images/champs/yone/thumbnail-yone-spiritblossom.jpg";
+import { useParams } from "react-router-dom";
 
 const champ = {
   id: 1,
@@ -45,21 +46,24 @@ const products = [
 function Champ() {
   const theme = useSelector((state) => state.app.theme);
 
-  const [skins, setSkins] = useState([]);
+  const [skins, setSkin] = useState([]);
+
+  const {id} = useParams();
 
   useEffect (()=> {
-    const getSkins = async() => {
-      const skinFetch = await fetch("http://localhost:7500/champs?filter=date&page=1&items=4");
-      console.log(skinFetch)
-      const skinsData = await skinFetch.json();
+    const getSkinById = async() => {
+      console.log(id)
+      const skinFetch = await fetch(`http://localhost:7500/champs/${id}`);
+       //en esta dirección pongo la dirección del api
+      const skinData = await skinFetch.json();
       if (skinFetch.status === 200) {
-        setSkins(skinsData);
+        setSkin(skinData);
       } else {
-        setSkins([]);
+        setSkin([]);
       }
     }
-    getSkins();
-  },[])
+    getSkinById();
+    }, [id])
 
   return (
     <div>

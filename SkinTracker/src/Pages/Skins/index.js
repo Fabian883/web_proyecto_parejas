@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { CgChevronLeftR, CgChevronRightR, CgChevronDoubleLeftR, CgChevronDoubleRightR, CgArrowLeftR } from "react-icons/cg";
 import { AiOutlineFilter } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 // List of all skins satisfing all the filters
 //const [filters, setFilters] = useState({minPrice:"", maxPrice:""});
@@ -105,11 +106,11 @@ function Skins() {
                 className={`border ${theme.productBorder}`}
               >
                 <div className = "bg-black">
-                  <a href="/skin" >
+                  <Link to={`/skin/${p.id}`} >
 
                     {" "}
                     <img src={p.image}  alt={p.skin} />{/* aquí llamo al arreglo o a skins? */}
-                  </a>
+                  </Link>
                 </div>
                 <div className="p-4 text-center bg-black">
                   <p>{p.skin}</p>
