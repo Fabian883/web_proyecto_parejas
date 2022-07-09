@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import yone from "../../images/champs/yone/yone.jpg";
 import yone_skin from "../../images/champs/yone/thumbnail-yone-spiritblossom.jpg";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const champ = {
   id: 1,
@@ -104,10 +105,12 @@ function Champ() {
                   className={`border ${theme.productBorder}`}
                 >
                   <div className = "bg-black">
-                    <a href="/Skin">
-                      {" "}
-                      <img src={p.image} alt={p.skin} />
-                    </a>
+                  <Link to={`/skin/${p.id}`} onClick={() =>{
+                  }} >
+
+                    {" "}
+                    <img src={p.image}  alt={p.skin} />{/* aquí llamo al arreglo o a skins? */}
+                  </Link>
                   </div>
                   <div className="p-4 text-center bg-black">
                     <p>{p.skin}</p>

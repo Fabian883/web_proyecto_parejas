@@ -4,15 +4,14 @@ import { CgArrowLeftR } from "react-icons/cg";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
+import { Link } from "react-router-dom";
 import yone from "../../images/champs/yone/yone-spiritblossom.jpg";
 import { useParams } from "react-router-dom";
 
-const product = {
-  id: 1,
-  skin: "Yone Spirit Blossom",
-  image: yone,
-  rp: 975,
-};
+
+
+
+
 
 function Skin() {
   const [skin, setSkin] = useState([]);
@@ -40,7 +39,7 @@ function Skin() {
     <div>
       <Header />
       <div className="bg-local bg-no-repeat bg-cover bg-center bg-[url('https://images.alphacoders.com/656/656584.jpg')]">
-        <a href="/Skins">
+        <a href="/skins">
           <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40"></CgArrowLeftR>
         </a>
 

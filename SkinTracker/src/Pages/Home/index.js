@@ -6,6 +6,7 @@ import thumbnail_generic from "../../images/champs/skin_thumbnail_generic.jpg";
 import thumbnail_skins from "../../images/champs/thumbnail_skins.jpg";
 import thumbnail_champs from "../../images/champs/thumbnail_champs.jpg";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   const theme = useSelector(
@@ -53,7 +54,7 @@ function Home() {
                 <p>Campeones</p>
               </div>
               <div className = "bg-black">
-                <a href="/Champs">
+                <a href="/champs">
                   {" "}
                   <img src={thumbnail_champs} alt="thumbnail_skins" />
                 </a>
@@ -78,10 +79,12 @@ function Home() {
                   className={`border ${theme.productBorder}`}
                 >
                   <div className = "bg-black">
-                    <a href="/Skin">
-                      {" "}
-                      <img src={p.image} alt={p.skin} />
-                    </a>
+                  <Link to={`/skin/${p.id}`} onClick={() =>{
+                  }} >
+
+                    {" "}
+                    <img src={p.image}  alt={p.skin} />{/* aquí llamo al arreglo o a skins? */}
+                  </Link>
                   </div>
                   <div className="p-4 text-center bg-black">
                     <p>{p.skin}</p>
