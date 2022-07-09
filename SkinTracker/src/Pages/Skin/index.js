@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import yone from "../../images/champs/yone/yone-spiritblossom.jpg";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Mixpanel from "../../services/mixpanel";
 
 
 
@@ -92,7 +94,13 @@ function Skin() {
           </div>
 
           <div className="place-content-center grid grid-cols-[repeat(1,368px)] pt-6" >
-            <a href="https://signup.leagueoflegends.com/es-mx/signup/redownload">
+            <Link to="https://signup.leagueoflegends.com/es-mx/signup/redownload" onClick={() => {
+                      Mixpanel.track(Mixpanel.TYPES.BUY_SKIN, {
+                        skinId: skin.id,
+                        skinName: skin.skin,
+                        photo: skin.image,
+                      });
+                    }}>
               <div className={`border ${theme.productBorder}`}>
                 <div className="items-center justify-center shadow-lg rounded-lg bg-black text-center">
                   <p className="font-sans text-l">
@@ -100,7 +108,7 @@ function Skin() {
                   </p>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

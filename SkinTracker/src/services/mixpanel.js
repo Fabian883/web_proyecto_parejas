@@ -20,8 +20,9 @@ const Mixpanel = {
     TYPES: {
         VIEW_SKIN: "VIEW_SKIN",
         VIEW_CHAMP: "VIEW_CHAMP",
-        VIEW_SKINS: "VIEW_SKIN",
-        VIEW_CHAMPS: "VIEW_CHAMP",
+        OPEN_SKINS_MENU: "OPEN_SKINS_MENU",
+        OPEN_CHAMPS_MENU: "OPEN_CHAMPS_MENU",
+        BUY_SKIN: "BUY_SKIN",
     }
 };
 

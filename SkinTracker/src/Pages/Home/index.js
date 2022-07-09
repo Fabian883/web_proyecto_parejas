@@ -45,7 +45,7 @@ function Home() {
               </div>
               <div className = "bg-black">
                 <Link to="/skins" onClick={() => {
-                      Mixpanel.track(Mixpanel.TYPES.VIEW_SKINS, {
+                      Mixpanel.track(Mixpanel.TYPES.OPEN_SKINS_MENU, {
                         skins: 1,
                         photo: thumbnail_skins,
                       });
@@ -61,7 +61,7 @@ function Home() {
               </div>
               <div className = "bg-black">
                 <Link to="/champs" onClick={() => {
-                      Mixpanel.track(Mixpanel.TYPES.VIEW_CHAMPS, {
+                      Mixpanel.track(Mixpanel.TYPES.OPEN_CHAMPS_MENU, {
                         champs: 1,
                         photo: thumbnail_skins,
                       });
