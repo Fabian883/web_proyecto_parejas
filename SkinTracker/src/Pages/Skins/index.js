@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { CgChevronLeftR, CgChevronRightR, CgChevronDoubleLeftR, CgChevronDoubleRightR, CgArrowLeftR } from "react-icons/cg";
 import { AiOutlineFilter } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import Mixpanel from "../../services/mixpanel";
+// import Mixpanel from "../../services/mixpanel";
 
 // List of all skins satisfing all the filters
 //const [filters, setFilters] = useState({minPrice:"", maxPrice:""});
@@ -107,15 +107,7 @@ function Skins() {
                 className={`border ${theme.productBorder}`}
               >
                 <div className = "bg-black">
-                  <Link to={`/skin/${p.id}`} onClick={() =>{
-                    Mixpanel.track(Mixpanel.TYPES.VIEW_PRODUCT, {
-                      skinId: p.id,
-                      skinName: p.skin,
-                      skinPrice: p.rp,
-                      photo: p.image,
-                    });
-                  }} >
-
+                  <Link to={`/skin/${p.id}`} onClick={() =>{}} >
                     {" "}
                     <img src={p.image}  alt={p.skin} />{/* aquí llamo al arreglo o a skins? */}
                   </Link>

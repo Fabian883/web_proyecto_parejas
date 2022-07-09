@@ -1,5 +1,5 @@
 import { BiSearch } from "react-icons/bi";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Logo from "../Logo";
 import Modal from "../Modal";
@@ -23,10 +23,6 @@ function Header() {
     }
     getSkins();
   },[search])
-  
-  const user = useSelector(
-    (state) => state.user.user
-  );
 
   const lookUp = (event) => {
     setSearch(event.target.value);
@@ -58,7 +54,7 @@ function Header() {
           <Logo width="w-60" height="h-20" /* CAMBIAR TAMAÑO DEL LOGO *//>
         </div>
         <div className="w-1/2 pr-16 flex gap-3 items-center justify-end">
-          <p>{user && user.nombre ? ` ¡Bienvenido ${user.nombre}!` : "¡Bienvenido!"}</p>
+          <p>"¡Bienvenido!"</p>
           <BiSearch
             onClick={() => {
               setShowSearch(true);

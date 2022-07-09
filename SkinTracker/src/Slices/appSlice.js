@@ -34,21 +34,3 @@ export const fetchPromo = createAsyncThunk('promo/fetchPromo', async () => {
 export const { toLight, toDark, startLoading, stopLoading } = appSlice.actions;
 
 export default appSlice.reducer;
-
-/*
-,
-    extraReducers(builder) {
-        builder
-            .addCase(fetchPromo.pending, (state) => {
-                state.loading = true;
-            })
-            .addCase(fetchPromo.fulfilled, (state, action) => {
-                state.loading = false;
-                state.promo = action.payload;
-            })
-            .addCase(fetchPromo.rejected, (state) => {
-                state.loading = false;
-                alert("ERROR AL PEDIR LAS ALERTAS");
-            })
-    }
-*/

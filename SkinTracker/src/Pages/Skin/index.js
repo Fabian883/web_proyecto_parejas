@@ -14,11 +14,6 @@ const product = {
   rp: 975,
 };
 
-
-
-
-
-
 function Skin() {
   const [skin, setSkin] = useState([]);
   
