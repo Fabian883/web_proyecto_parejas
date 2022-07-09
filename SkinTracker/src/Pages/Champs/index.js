@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { CgChevronLeftR, CgChevronRightR, CgChevronDoubleLeftR, CgChevronDoubleRightR, CgArrowLeftR } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import Mixpanel from "../../services/mixpanel";
 
 
 /* Esta pagina NO va a tener FILTROS */
@@ -73,10 +74,16 @@ function Champs() {
                 className={`border ${theme.productBorder}`}
               >
                 <div className = "bg-black">
-                <Link to={`/champ/${ct.id}`} >
+                <Link to={`/champ/${ct.id}`} onClick={() => {
+                      Mixpanel.track(Mixpanel.TYPES.VIEW_CHAMP, {
+                        champId: ct.id,
+                        champName: ct.skin,
+                        photo: ct.image,
+                      });
+                    }}>
 
                 {" "}
-                <img src={ct.image}  alt={ct.skin} />{/* aquí llamo al arreglo o a skins? */}
+                <img src={ct.image}  alt={ct.skin} />
                 </Link>
                 </div>
                 <div className="p-4 text-center bg-black">

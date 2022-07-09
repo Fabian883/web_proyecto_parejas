@@ -18,15 +18,10 @@ const Mixpanel = {
         }
     },
     TYPES: {
-        OPEN_USER_MENU: "OPEN_USER_MENU",
-        GO_TO_LOGIN: "GO_TO_LOGIN",
-        CLOSE_SESSION: "CLOSE_SESSION",
-        GO_TO_CREATE_ACCOUNT: "GO_TO_CREATE_ACCOUNT",
-        GO_TO_ADMIN: "GO_TO_ADMIN",
-        GO_TO_HELP: "GO_TO_HELP",
         VIEW_SKIN: "VIEW_SKIN",
-        TOGGLE_THEME: "TOGGLE_THEME",
-        SUCCESSFULLY_LOGIN: "SUCCESSFULLY_LOGIN",
+        VIEW_CHAMP: "VIEW_CHAMP",
+        VIEW_SKINS: "VIEW_SKIN",
+        VIEW_CHAMPS: "VIEW_CHAMP",
     }
 };
 

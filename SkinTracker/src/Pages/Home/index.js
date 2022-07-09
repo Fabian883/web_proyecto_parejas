@@ -7,6 +7,7 @@ import thumbnail_skins from "../../images/champs/thumbnail_skins.jpg";
 import thumbnail_champs from "../../images/champs/thumbnail_champs.jpg";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Mixpanel from "../../services/mixpanel";
 
 function Home() {
   const theme = useSelector(
@@ -43,10 +44,15 @@ function Home() {
                 <p>Skins</p>
               </div>
               <div className = "bg-black">
-                <a href="/skins">
+                <Link to="/skins" onClick={() => {
+                      Mixpanel.track(Mixpanel.TYPES.VIEW_SKINS, {
+                        skins: 1,
+                        photo: thumbnail_skins,
+                      });
+                    }}>
                   {" "}
                   <img src={thumbnail_skins} alt="thumbnail_skins" />
-                </a>
+                </Link>
               </div>
             </div>
             <div className={`border ${theme.productBorder}`}>
@@ -54,10 +60,15 @@ function Home() {
                 <p>Campeones</p>
               </div>
               <div className = "bg-black">
-                <a href="/champs">
+                <Link to="/champs" onClick={() => {
+                      Mixpanel.track(Mixpanel.TYPES.VIEW_CHAMPS, {
+                        champs: 1,
+                        photo: thumbnail_skins,
+                      });
+                    }}>
                   {" "}
                   <img src={thumbnail_champs} alt="thumbnail_skins" />
-                </a>
+                </Link>
               </div>
             </div>
         </div>
@@ -79,8 +90,13 @@ function Home() {
                   className={`border ${theme.productBorder}`}
                 >
                   <div className = "bg-black">
-                  <Link to={`/skin/${p.id}`} onClick={() =>{
-                  }} >
+                  <Link to={`/skin/${p.id}`} onClick={() => {
+                      Mixpanel.track(Mixpanel.TYPES.VIEW_SKIN, {
+                        skinId: p.id,
+                        skinName: p.skin,
+                        photo: p.image,
+                      });
+                    }} >
 
                     {" "}
                     <img src={p.image}  alt={p.skin} />{/* aquí llamo al arreglo o a skins? */}

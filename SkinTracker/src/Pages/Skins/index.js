@@ -122,7 +122,7 @@ function Skins() {
                   <Link
                     to={`/skin/${p.id}`}
                     onClick={() => {
-                      Mixpanel.track(Mixpanel.TYPES.VIEW_PRODUCT, {
+                      Mixpanel.track(Mixpanel.TYPES.VIEW_SKIN, {
                         skinId: p.id,
                         skinName: p.skin,
                         photo: p.image,
