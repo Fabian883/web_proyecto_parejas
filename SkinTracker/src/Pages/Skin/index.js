@@ -3,8 +3,6 @@ import Footer from "../../Component/Footer";
 import { CgArrowLeftR } from "react-icons/cg";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-
-import { Link } from "react-router-dom";
 import yone from "../../images/champs/yone/yone-spiritblossom.jpg";
 import { useParams } from "react-router-dom";
 
