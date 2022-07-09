@@ -2,7 +2,6 @@ import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { AiOutlineFilter } from "react-icons/ai";
 import { CgChevronLeftR, CgChevronRightR, CgChevronDoubleLeftR, CgChevronDoubleRightR, CgArrowLeftR } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
@@ -14,12 +13,10 @@ const options = ["one", "two", "three"];
 
 function Champs() {
   const theme = useSelector((state) => state.app.theme);
-  const champs_thumbnails = useSelector((state) => state.champs.champs_thumbnails);
 
   const [filter, setFilter] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [skins, setSkins] = useState([]);
-  const [hide, setHide] = useState("hidden");
+  const [champs, setChamps] = useState([]);
 
   useEffect (()=> {
     const getFilteredSkins = async() => {
@@ -27,9 +24,9 @@ function Champs() {
       const skinFetch = await fetch(`http://localhost:7500/champs?filter=${filter}&page=${currentPage}&items=10`); //en esta dirección pongo la dirección del api
       const skinData = await skinFetch.json();
       if (skinFetch.status === 200) {
-        setSkins(skinData);
+        setChamps(skinData);
       } else {
-        setSkins([]);
+        setChamps([]);
       }
     }
     getFilteredSkins();
@@ -69,7 +66,7 @@ function Champs() {
         
 
         <div className=" grid grid-cols-4 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
-          {skins.map((ct) => {
+          {champs.map((ct) => {
             return (
               <div
                 key={`product_${ct.id}`}
