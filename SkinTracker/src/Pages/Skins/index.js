@@ -97,10 +97,11 @@ function Skins() {
         bg-[url('https://images.alphacoders.com/656/656584.jpg')]"
       >
         <a href="/">
-          <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40"></CgArrowLeftR>
+          <CgArrowLeftR className="cursor-pointer text-6xl absolute left-20 top-40"></CgArrowLeftR>
         </a>
+        {/* TODO: Cambiar a x6 en todo el programa */}
         <AiOutlineFilter
-          className="cursor-pointer text-3xl absolute right-20 top-40"
+          className="cursor-pointer text-6xl absolute right-20 top-40"
           onClick={show}
         ></AiOutlineFilter>
         <Dropdown
@@ -111,7 +112,8 @@ function Skins() {
         />
         <div className="right-20 top-20"></div>
 
-        <div className=" grid grid-cols-4 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
+        {/* TODO: Quitar ese quickfix de que se muestren 10 por 8 otra vez */}
+        <div className=" grid grid-cols-5 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
           {skins.map((p) => {
             return (
               <div
@@ -142,25 +144,14 @@ function Skins() {
             );
           })}
         </div>
-
-        <CgChevronDoubleLeftR
-          onClick={setFirst}
-          className="cursor-pointer text-3xl sticky left-96 bottom-10"
-        ></CgChevronDoubleLeftR>
-        <CgChevronLeftR
-          onClick={changePrevious}
-          className="cursor-pointer text-3xl absolute left-1/3 right-5 bottom-10"
-        ></CgChevronLeftR>
-
-        <CgChevronRightR
-          onClick={changeNext}
-          className="cursor-pointer text-3xl absolute right-1/3 bottom-10"
-        ></CgChevronRightR>
-        <CgChevronDoubleRightR
-          onClick={setLast}
-          className="cursor-pointer text-3xl absolute right-96 bottom-10"
-        ></CgChevronDoubleRightR>
-      </div>
+        
+          <div className="place-content-center grid grid-cols-[repeat(4,70px)] gap-10 pt-5">
+            <CgChevronDoubleLeftR onClick={setFirst} className="cursor-pointer text-6xl"></CgChevronDoubleLeftR>
+            <CgChevronLeftR onClick={changePrevious} className="cursor-pointer text-6xl"></CgChevronLeftR>
+            <CgChevronRightR onClick={changeNext} className="cursor-pointer text-6xl"></CgChevronRightR>
+            <CgChevronDoubleRightR onClick={setLast} className="cursor-pointer text-6xl"></CgChevronDoubleRightR>
+          </div>
+        </div>
       <Footer />
     </div>
   );

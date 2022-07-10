@@ -46,7 +46,7 @@ function Champ() {
        //en esta dirección pongo la dirección del api
       const champData = await champFetch.json();
       if (champFetch.status === 200) {
-        setChampName("Yasuo");
+        setChampName(champData.name);
         setChamp(champData);
       } else {
         setChamp([]);
@@ -113,7 +113,7 @@ function Champ() {
                   }} >
 
                     {" "}
-                    <img src={p.thumbnail}  alt={p.thumbnail} />
+                    <img src={p.thumbnail}  alt={champName + " skin"} />
                   </Link>
                   </div>
                   <div className="p-4 text-center bg-black">
