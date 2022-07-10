@@ -1,8 +1,8 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useSelector } from "react-redux";
-import { CgArrowLeftR } from "react-icons/cg";
 import { useState, useEffect } from "react";
+import { CgChevronLeftR, CgChevronRightR, CgChevronDoubleLeftR, CgChevronDoubleRightR, CgArrowLeftR } from "react-icons/cg";
 
 import yone from "../../images/champs/yone/yone.jpg";
 import yone_skin from "../../images/champs/yone/thumbnail-yone-spiritblossom.jpg";
@@ -13,23 +13,62 @@ function Champ() {
   const theme = useSelector((state) => state.app.theme);
 
   const [champ, setChamp] = useState([]);
+  const [champName, setChampName] = useState("");
+  const [skins, setSkins] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const setFirst = (event) => {
+    setCurrentPage(1);
+  };
+
+  const setLast = (event) => {
+    setCurrentPage(2);
+  };
+
+  const changePrevious = (event) => {
+    if (currentPage > 1){
+      setCurrentPage(currentPage-1);
+    }
+  };
+
+  const changeNext = (event) => {
+    if (currentPage < 2){//ese dos es la cantidad total de páginas que no se como conseguir en el front pero sí en el back
+      setCurrentPage(currentPage+1);
+    }
+  };
 
   const {id} = useParams();
+  
 
   useEffect (()=> {
-    const getSkinById = async() => {
-      console.log(id)
+    const getChampById = async() => {
       const champFetch = await fetch(`http://localhost:7500/champs/${id}`);
        //en esta dirección pongo la dirección del api
       const champData = await champFetch.json();
       if (champFetch.status === 200) {
+        setChampName("Yasuo");
         setChamp(champData);
       } else {
         setChamp([]);
       }
     }
-    getSkinById();
-    }, [id])
+    getChampById();
+    }, [id, currentPage])
+
+    useEffect (()=> {
+  
+      const getChampSkinsByName = async() => {
+        const skinFetch = await fetch(`http://localhost:7500/skins?page=${currentPage}&items=10&champ=${champName}`);//ver como crear ruta alternativa para que no choque con la ruta de filterSkins
+         //en esta dirección pongo la dirección del api
+        const skinData = await skinFetch.json();
+        if (skinFetch.status === 200) {
+          setSkins(skinData);
+        } else {
+          setSkins([]);
+        }
+      }
+      getChampSkinsByName();
+      }, [champName, currentPage])
 
   return (
     <div>
@@ -55,15 +94,15 @@ function Champ() {
           <div className="place-content-center grid grid-cols-[repeat(1,150px)] pt-10 pb-8">
             <div className={`border ${theme.productBorder}`}>
               <div className="flex items-center justify-center shadow-lg bg-black ">
-                <p>Skins de‏‏‎ ‎</p>
-                <p>{champ.name}</p>
+                <p>Skins &nbsp;de ‏‏‎‎&nbsp;</p>
+                <p> {champ.name}</p>
               </div>
             </div>
         </div>
 
         <div className = "pb-24">
           <div className=" grid grid-cols-4 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
-            {/*{champ.map((p) => {
+            {skins.map((p) => {
               return (
                 <div
                   key={`${p.id}`}
@@ -74,7 +113,7 @@ function Champ() {
                   }} >
 
                     {" "}
-                    <img src={p.image}  alt={p.skin} />
+                    <img src={p.thumbnail}  alt={p.thumbnail} />
                   </Link>
                   </div>
                   <div className="p-4 text-center bg-black">
@@ -83,9 +122,15 @@ function Champ() {
                   </div>
                 </div>
               );
-            })}*/}
+            })}
           </div>
         </div>
+        <CgChevronDoubleLeftR onClick={setFirst} className="cursor-pointer text-3xl absolute left-96 bottom-10"></CgChevronDoubleLeftR>
+        <CgChevronLeftR onClick={changePrevious} className="cursor-pointer text-3xl absolute left-1/3 right-5 bottom-10"></CgChevronLeftR>
+        
+        <CgChevronRightR onClick={changeNext} className="cursor-pointer text-3xl absolute right-1/3 bottom-10"></CgChevronRightR>
+        <CgChevronDoubleRightR onClick={setLast} className="cursor-pointer text-3xl absolute right-96 bottom-10"></CgChevronDoubleRightR>
+
       </div>
       <Footer />
     </div>
