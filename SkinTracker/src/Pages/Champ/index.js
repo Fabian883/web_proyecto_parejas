@@ -3,9 +3,6 @@ import Footer from "../../Component/Footer";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { CgChevronLeftR, CgChevronRightR, CgChevronDoubleLeftR, CgChevronDoubleRightR, CgArrowLeftR } from "react-icons/cg";
-
-import yone from "../../images/champs/yone/yone.jpg";
-import yone_skin from "../../images/champs/yone/thumbnail-yone-spiritblossom.jpg";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -75,7 +72,7 @@ function Champ() {
       <Header />
       <div className="bg-local bg-no-repeat bg-cover bg-center bg-[url('https://images.alphacoders.com/656/656584.jpg')]">
         <a href="/Champs">
-          <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40"></CgArrowLeftR>
+          <CgArrowLeftR className="cursor-pointer text-6xl absolute left-20 top-40"></CgArrowLeftR>
         </a>
 
         <div className = "container mx-auto px-40 pt-24">
@@ -85,7 +82,7 @@ function Champ() {
                 <p>{champ.title}</p>
             </div>
             <div className="flex items-center justify-center">
-              <img src={champ.thumbnail} alt={champ.name} />
+              <img src={champ.image} alt={champ.name} />
             </div>
           </div>
         </div>
@@ -125,12 +122,12 @@ function Champ() {
             })}
           </div>
         </div>
-        <CgChevronDoubleLeftR onClick={setFirst} className="cursor-pointer text-3xl absolute left-96 bottom-10"></CgChevronDoubleLeftR>
-        <CgChevronLeftR onClick={changePrevious} className="cursor-pointer text-3xl absolute left-1/3 right-5 bottom-10"></CgChevronLeftR>
-        
-        <CgChevronRightR onClick={changeNext} className="cursor-pointer text-3xl absolute right-1/3 bottom-10"></CgChevronRightR>
-        <CgChevronDoubleRightR onClick={setLast} className="cursor-pointer text-3xl absolute right-96 bottom-10"></CgChevronDoubleRightR>
-
+        <div className="place-content-center grid grid-cols-[repeat(4,70px)] gap-10 pt-5">
+          <CgChevronDoubleLeftR onClick={setFirst} className="cursor-pointer text-6xl"></CgChevronDoubleLeftR>
+          <CgChevronLeftR onClick={changePrevious} className="cursor-pointer text-6xl"></CgChevronLeftR>
+          <CgChevronRightR onClick={changeNext} className="cursor-pointer text-6xl"></CgChevronRightR>
+          <CgChevronDoubleRightR onClick={setLast} className="cursor-pointer text-6xl"></CgChevronDoubleRightR>
+        </div>
       </div>
       <Footer />
     </div>

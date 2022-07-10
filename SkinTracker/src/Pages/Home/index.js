@@ -1,13 +1,13 @@
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
-import { useSelector } from "react-redux";
+import Mixpanel from "../../services/mixpanel";
 
-import thumbnail_generic from "../../images/champs/skin_thumbnail_generic.jpg";
-import thumbnail_skins from "../../images/champs/thumbnail_skins.jpg";
-import thumbnail_champs from "../../images/champs/thumbnail_champs.jpg";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Mixpanel from "../../services/mixpanel";
+
+import thumbnail_skins from "../../images/champs/thumbnail_skins.jpg";
+import thumbnail_champs from "../../images/champs/thumbnail_champs.jpg";
 
 function Home() {
   const theme = useSelector(

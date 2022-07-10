@@ -54,7 +54,7 @@ function Header() {
           <Logo width="w-60" height="h-20" /* CAMBIAR TAMAÑO DEL LOGO *//>
         </div>
         <div className="w-1/2 pr-16 flex gap-3 items-center justify-end">
-          <p>"¡Bienvenido!"</p>
+          <p>¡Bienvenido!</p>
           <BiSearch
             onClick={() => {
               setShowSearch(true);

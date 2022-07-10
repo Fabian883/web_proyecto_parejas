@@ -6,7 +6,6 @@ import { CgChevronLeftR, CgChevronRightR, CgChevronDoubleLeftR, CgChevronDoubleR
 import { Link } from "react-router-dom";
 import Mixpanel from "../../services/mixpanel";
 
-
 /* Esta pagina NO va a tener FILTROS */
 /* TODO: Quitar los filtros de las opciones */
 
@@ -61,10 +60,8 @@ function Champs() {
       <div className="pt-24 pb-24 bg-local bg-no-repeat bg-cover bg-center 
         bg-[url('https://images.alphacoders.com/656/656584.jpg')]">
         <a href="/">
-          <CgArrowLeftR className="cursor-pointer text-3xl absolute left-20 top-40"></CgArrowLeftR>
+          <CgArrowLeftR className="cursor-pointer text-6xl absolute left-20 top-40"></CgArrowLeftR>
         </a>
-        
-        
 
         <div className=" grid grid-cols-4 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
           {champs.map((ct) => {
@@ -92,12 +89,12 @@ function Champs() {
             );
           })}
         </div>
-        <CgChevronDoubleLeftR onClick={setFirst} className="cursor-pointer text-3xl sticky left-96 bottom-10"></CgChevronDoubleLeftR>
-        <CgChevronLeftR onClick={changePrevious} className="cursor-pointer text-3xl absolute left-1/3 right-5 bottom-10"></CgChevronLeftR>
-        
-        <CgChevronRightR onClick={changeNext} className="cursor-pointer text-3xl absolute right-1/3 bottom-10"></CgChevronRightR>
-        <CgChevronDoubleRightR onClick={setLast} className="cursor-pointer text-3xl absolute right-96 bottom-10"></CgChevronDoubleRightR>
-
+        <div className="place-content-center grid grid-cols-[repeat(4,70px)] gap-10 pt-5">
+          <CgChevronDoubleLeftR onClick={setFirst} className="cursor-pointer text-6xl"></CgChevronDoubleLeftR>
+          <CgChevronLeftR onClick={changePrevious} className="cursor-pointer text-6xl"></CgChevronLeftR>
+          <CgChevronRightR onClick={changeNext} className="cursor-pointer text-6xl"></CgChevronRightR>
+          <CgChevronDoubleRightR onClick={setLast} className="cursor-pointer text-6xl"></CgChevronDoubleRightR>
+        </div>
       </div>
       <Footer />
     </div>
