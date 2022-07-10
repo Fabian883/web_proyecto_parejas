@@ -3,7 +3,6 @@ import Footer from "../../Component/Footer";
 import { CgArrowLeftR } from "react-icons/cg";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import yone from "../../images/champs/yone/yone-spiritblossom.jpg";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Mixpanel from "../../services/mixpanel";
@@ -49,19 +48,19 @@ function Skin() {
               <p>{skin.name}</p>
             </div>
             <div className="flex items-center justify-center">
-              <img src={skin.thumbnail}  alt={skin.name} />
+              <img src={skin.image}  alt={skin.name} />
             </div>
           </div>
           
           <div className="place-content-center grid grid-cols-[repeat(4,150px)] gap-10 pt-5">
             <div className={`border ${theme.productBorder}`}>
               <div className="flex items-center justify-center shadow-lg bg-black ">
-                <p>skin.type</p>
+                <p>{skin.type}</p>
               </div>
             </div>
             <div className={`border ${theme.productBorder}`}>
               <div className="flex items-center justify-center shadow-lg bg-black ">
-                <p>skin.available</p>
+                <p>{skin.available}</p>
               </div>
             </div>
             <div className={`border ${theme.productBorder}`}>
@@ -71,7 +70,7 @@ function Skin() {
             </div>
             <div className={`border ${theme.productBorder}`}>
               <div className="flex items-center justify-center shadow-lg bg-black ">
-                <p>skin.releaseDate</p>
+                <p>{skin.releaseDate}</p>
               </div>
             </div>
           </div>
