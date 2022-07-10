@@ -58,7 +58,7 @@ function Champ() {
     useEffect (()=> {
   
       const getChampSkinsByName = async() => {
-        const skinFetch = await fetch(`http://localhost:7500/skins?page=${currentPage}&items=10&champ=${champName}`);//ver como crear ruta alternativa para que no choque con la ruta de filterSkins
+        const skinFetch = await fetch(`http://localhost:7500/skins/champ?page=${currentPage}&items=10&champ=${champName}`);
          //en esta dirección pongo la dirección del api
         const skinData = await skinFetch.json();
         if (skinFetch.status === 200) {
