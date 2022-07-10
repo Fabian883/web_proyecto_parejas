@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Logo from "../Logo";
 import Modal from "../Modal";
 
-
 function Header() {
   const [showSearch, setShowSearch] = useState(false);
   const [search, setSearch] = useState("");

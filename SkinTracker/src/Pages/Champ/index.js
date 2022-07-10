@@ -91,7 +91,7 @@ function Champ() {
           <div className="place-content-center grid grid-cols-[repeat(1,150px)] pt-10 pb-8">
             <div className={`border ${theme.productBorder}`}>
               <div className="flex items-center justify-center shadow-lg bg-black ">
-                <p>Skins &nbsp;de ‏‏‎‎&nbsp;</p>
+                <p>Skins de ‏‏‎‎&nbsp;</p>
                 <p> {champ.name}</p>
               </div>
             </div>

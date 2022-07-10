@@ -7,11 +7,6 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Mixpanel from "../../services/mixpanel";
 
-
-
-
-
-
 function Skin() {
   const [skin, setSkin] = useState([]);
   
@@ -80,14 +75,7 @@ function Skin() {
             <div className="items-center justify-center shadow-lg bg-black text-center">
               <p className="font-sans text-xl">Descripción</p>
               <p className="font-sans text-sm">
-                skin.description
-                {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et
-                lacus sed lacus porta auctor et nec metus. Nullam finibus arcu eu
-                dui pharetra, ut congue ante blandit. Vivamus sit amet mi et
-                mauris mattis ullamcorper. Donec porttitor dapibus nibh, at luctus
-                turpis euismod et. Suspendisse potenti. Integer dignissim in justo
-                id vestibulum. Curabitur ligula ipsum, tristique ut tincidunt sit
-                amet, cursus a diam.{" "}*/}
+                {skin.description}
               </p>
             </div>
             </div>
