@@ -22,10 +22,10 @@ function Champs() {
   useEffect (()=> {
     const getFilteredSkins = async() => {
       console.log(currentPage)
-      const skinFetch = await fetch(`http://localhost:7500/champs?filter=${filter}&page=${currentPage}&items=10`); //en esta dirección pongo la dirección del api
-      const skinData = await skinFetch.json();
-      if (skinFetch.status === 200) {
-        setChamps(skinData);
+      const champFetch = await fetch(`http://localhost:7500/champs?filter=${filter}&page=${currentPage}&items=10`); //en esta dirección pongo la dirección del api
+      const champData = await champFetch.json();
+      if (champFetch.status === 200) {
+        setChamps(champData);
       } else {
         setChamps([]);
       }
@@ -70,24 +70,23 @@ function Champs() {
           {champs.map((ct) => {
             return (
               <div
-                key={`product_${ct.id}`}
+                key={`${ct.id}`}
                 className={`border ${theme.productBorder}`}
               >
                 <div className = "bg-black">
                 <Link to={`/champ/${ct.id}`} onClick={() => {
                       Mixpanel.track(Mixpanel.TYPES.VIEW_CHAMP, {
                         champId: ct.id,
-                        champName: ct.skin,
-                        photo: ct.image,
+                        champName: ct.name,
+                        photo: ct.thumbnail,
                       });
                     }}>
-
                 {" "}
-                <img src={ct.image}  alt={ct.skin} />
+                <img src={ct.thumbnail}  alt={ct.name} />
                 </Link>
                 </div>
                 <div className="p-4 text-center bg-black">
-                  <p>{ct.skin}</p>
+                  <p>{ct.name}</p>
                 </div>
               </div>
             );

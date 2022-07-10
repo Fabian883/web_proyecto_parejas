@@ -46,22 +46,22 @@ function Skin() {
         <div className = "container mx-auto px-40 py-24">
           <div className={`border ${theme.productBorder}`}>
             <div className="flex items-center justify-center shadow-lg bg-black">
-              <p>{skin.skin}</p>
+              <p>{skin.name}</p>
             </div>
             <div className="flex items-center justify-center">
-              <img src={skin.image}  alt={skin.skin} />
+              <img src={skin.thumbnail}  alt={skin.name} />
             </div>
           </div>
           
           <div className="place-content-center grid grid-cols-[repeat(4,150px)] gap-10 pt-5">
             <div className={`border ${theme.productBorder}`}>
               <div className="flex items-center justify-center shadow-lg bg-black ">
-                <p>Epica</p>
+                <p>skin.type</p>
               </div>
             </div>
             <div className={`border ${theme.productBorder}`}>
               <div className="flex items-center justify-center shadow-lg bg-black ">
-                <p>Disponible</p>
+                <p>skin.available</p>
               </div>
             </div>
             <div className={`border ${theme.productBorder}`}>
@@ -71,7 +71,7 @@ function Skin() {
             </div>
             <div className={`border ${theme.productBorder}`}>
               <div className="flex items-center justify-center shadow-lg bg-black ">
-                <p>Fecha</p>
+                <p>skin.releaseDate</p>
               </div>
             </div>
           </div>
@@ -81,13 +81,14 @@ function Skin() {
             <div className="items-center justify-center shadow-lg bg-black text-center">
               <p className="font-sans text-xl">Descripción</p>
               <p className="font-sans text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et
+                skin.description
+                {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et
                 lacus sed lacus porta auctor et nec metus. Nullam finibus arcu eu
                 dui pharetra, ut congue ante blandit. Vivamus sit amet mi et
                 mauris mattis ullamcorper. Donec porttitor dapibus nibh, at luctus
                 turpis euismod et. Suspendisse potenti. Integer dignissim in justo
                 id vestibulum. Curabitur ligula ipsum, tristique ut tincidunt sit
-                amet, cursus a diam.{" "}
+                amet, cursus a diam.{" "}*/}
               </p>
             </div>
             </div>

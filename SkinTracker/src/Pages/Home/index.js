@@ -86,7 +86,7 @@ function Home() {
             {skins.map((p) => {
               return (
                 <div
-                  key={`product_${p.id}`}
+                  key={`${p.id}`}
                   className={`border ${theme.productBorder}`}
                 >
                   <div className = "bg-black">
@@ -99,11 +99,11 @@ function Home() {
                     }} >
 
                     {" "}
-                    <img src={p.image}  alt={p.skin} />{/* aquí llamo al arreglo o a skins? */}
+                    <img src={p.thumbnail}  alt={p.name} />{/* aquí llamo al arreglo o a skins? */}
                   </Link>
                   </div>
                   <div className="p-4 text-center bg-black">
-                    <p>{p.skin}</p>
+                    <p>{p.name}</p>
                     <p className={`${theme.priceTag}`}>RP-{p.rp}</p>
                   </div>
                 </div>

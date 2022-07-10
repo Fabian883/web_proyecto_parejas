@@ -9,58 +9,23 @@ import yone_skin from "../../images/champs/yone/thumbnail-yone-spiritblossom.jpg
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const champ = {
-  id: 1,
-  name: "Yone",
-  title: ", el Imborrable",
-  splash_art: yone,
-};
-
-const products = [
-    {
-      id: 1,
-      skin: "Yone Spirit Blossom",
-      image: yone_skin,
-      rp: 975,
-    },
-    {
-      id: 2,
-      skin: "Yone Spirit Blossom",
-      image: yone_skin,
-      rp: 975,
-    },
-    {
-      id: 3,
-      skin: "Yone Spirit Blossom",
-      image: yone_skin,
-      rp: 975,
-    },
-    {
-      id: 4,
-      skin: "Yone Spirit Blossom",
-      image: yone_skin,
-      rp: 975,
-    }
-    ,
-  ];
-
 function Champ() {
   const theme = useSelector((state) => state.app.theme);
 
-  const [skins, setSkin] = useState([]);
+  const [champ, setChamp] = useState([]);
 
   const {id} = useParams();
 
   useEffect (()=> {
     const getSkinById = async() => {
       console.log(id)
-      const skinFetch = await fetch(`http://localhost:7500/champs/${id}`);
+      const champFetch = await fetch(`http://localhost:7500/champs/${id}`);
        //en esta dirección pongo la dirección del api
-      const skinData = await skinFetch.json();
-      if (skinFetch.status === 200) {
-        setSkin(skinData);
+      const champData = await champFetch.json();
+      if (champFetch.status === 200) {
+        setChamp(champData);
       } else {
-        setSkin([]);
+        setChamp([]);
       }
     }
     getSkinById();
@@ -81,7 +46,7 @@ function Champ() {
                 <p>{champ.title}</p>
             </div>
             <div className="flex items-center justify-center">
-              <img src={champ.splash_art} alt={champ.name} />
+              <img src={champ.thumbnail} alt={champ.name} />
             </div>
           </div>
         </div>
@@ -98,10 +63,10 @@ function Champ() {
 
         <div className = "pb-24">
           <div className=" grid grid-cols-4 gap-4 px-4 md:px-8 lg:px-20 py-4 w-full">
-            {skins.map((p) => {
+            {/*{champ.map((p) => {
               return (
                 <div
-                  key={`product_${p.id}`}
+                  key={`${p.id}`}
                   className={`border ${theme.productBorder}`}
                 >
                   <div className = "bg-black">
@@ -109,7 +74,7 @@ function Champ() {
                   }} >
 
                     {" "}
-                    <img src={p.image}  alt={p.skin} />{/* aquí llamo al arreglo o a skins? */}
+                    <img src={p.image}  alt={p.skin} />
                   </Link>
                   </div>
                   <div className="p-4 text-center bg-black">
@@ -118,7 +83,7 @@ function Champ() {
                   </div>
                 </div>
               );
-            })}
+            })}*/}
           </div>
         </div>
       </div>

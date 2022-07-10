@@ -115,7 +115,7 @@ function Skins() {
           {skins.map((p) => {
             return (
               <div
-                key={`product_${p.id}`}
+                key={`${p.id}`}
                 className={`border ${theme.productBorder}`}
               >
                 <div className="bg-black">
@@ -124,18 +124,18 @@ function Skins() {
                     onClick={() => {
                       Mixpanel.track(Mixpanel.TYPES.VIEW_SKIN, {
                         skinId: p.id,
-                        skinName: p.skin,
-                        photo: p.image,
+                        skinName: p.name,
+                        photo: p.thumbnail,
                       });
                     }}
                   >
                     {" "}
-                    <img src={p.image} alt={p.skin} />
+                    <img src={p.thumbnail} alt={p.name} />
                     {/* aquí llamo al arreglo o a skins? */}
                   </Link>
                 </div>
                 <div className="p-4 text-center bg-black">
-                  <p>{p.skin}</p>
+                  <p>{p.name}</p>
                   <p className={`${theme.priceTag}`}>RP-{p.rp}</p>
                 </div>
               </div>
