@@ -9,7 +9,6 @@ import {
   CgChevronDoubleRightR,
   CgArrowLeftR,
 } from "react-icons/cg";
-import { AiOutlineFilter } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Mixpanel from "../../services/mixpanel";
 
@@ -28,7 +27,7 @@ function Skins() {
   const [filter, setFilter] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [skins, setSkins] = useState([]);
-  const [hide, setHide] = useState("hidden");
+  const [hide] = useState("hidden");
 
   useEffect(() => {
     const getFilteredSkins = async () => {
@@ -71,10 +70,6 @@ function Skins() {
     setFilter(event.target.value);
   };
 
-  const show = (event) => {
-    setHide("block");
-  };
-
   const Dropdown = ({ label, value, options, onChange }) => {
     return (
       <label display={hide} className="text-black absolute right-20 top-40">
@@ -99,11 +94,6 @@ function Skins() {
         <a href="/">
           <CgArrowLeftR className="cursor-pointer text-6xl absolute left-20 top-40"></CgArrowLeftR>
         </a>
-        {/* TODO: Cambiar a x6 en todo el programa */}
-        <AiOutlineFilter
-          className="cursor-pointer text-6xl absolute right-20 top-40"
-          onClick={show}
-        ></AiOutlineFilter>
         <Dropdown
           label="Hello?"
           options={options}
