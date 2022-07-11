@@ -17,7 +17,6 @@ import Mixpanel from "../../services/mixpanel";
 
 const options = [
   { label: "Precio", value: "price" },
-  { label: "Nombre", value: "name" },
   { label: "Fecha", value: "date" },
 ];
 
