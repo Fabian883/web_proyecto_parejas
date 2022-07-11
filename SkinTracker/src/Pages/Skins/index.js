@@ -92,7 +92,7 @@ function Skins() {
         bg-[url('https://images.alphacoders.com/656/656584.jpg')]"
       >
         <a href="/">
-          <CgArrowLeftR className="cursor-pointer text-6xl absolute left-20 top-40"></CgArrowLeftR>
+          <CgArrowLeftR className="cursor-pointer text-6xl absolute left-20 top-36"></CgArrowLeftR>
         </a>
         <Dropdown
           label="Hello?"

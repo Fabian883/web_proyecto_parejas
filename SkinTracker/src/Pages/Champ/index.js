@@ -2,7 +2,7 @@ import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { CgChevronLeftR, CgChevronRightR, CgChevronDoubleLeftR, CgChevronDoubleRightR, CgArrowLeftR } from "react-icons/cg";
+import { CgArrowLeftR } from "react-icons/cg";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -12,27 +12,6 @@ function Champ() {
   const [champ, setChamp] = useState([]);
   const [champName, setChampName] = useState("");
   const [skins, setSkins] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const setFirst = (event) => {
-    setCurrentPage(1);
-  };
-
-  const setLast = (event) => {
-    setCurrentPage(2);
-  };
-
-  const changePrevious = (event) => {
-    if (currentPage > 1){
-      setCurrentPage(currentPage-1);
-    }
-  };
-
-  const changeNext = (event) => {
-    if (currentPage < 2){//ese dos es la cantidad total de páginas que no se como conseguir en el front pero sí en el back
-      setCurrentPage(currentPage+1);
-    }
-  };
 
   const {id} = useParams();
   
@@ -50,12 +29,12 @@ function Champ() {
       }
     }
     getChampById();
-    }, [id, currentPage])
+    }, [id])
 
     useEffect (()=> {
   
       const getChampSkinsByName = async() => {
-        const skinFetch = await fetch(`http://localhost:7500/skins/champ?page=${currentPage}&items=10&champ=${champName}`);
+        const skinFetch = await fetch(`http://localhost:7500/skins/champ?items=10&champ=${champName}`);
          //en esta dirección pongo la dirección del api
         const skinData = await skinFetch.json();
         if (skinFetch.status === 200) {
@@ -65,7 +44,7 @@ function Champ() {
         }
       }
       getChampSkinsByName();
-      }, [champName, currentPage])
+      }, [champName])
 
   return (
     <div>
@@ -121,12 +100,6 @@ function Champ() {
               );
             })}
           </div>
-        </div>
-        <div className="place-content-center grid grid-cols-[repeat(4,70px)] gap-10 pt-5">
-          <CgChevronDoubleLeftR onClick={setFirst} className="cursor-pointer text-6xl"></CgChevronDoubleLeftR>
-          <CgChevronLeftR onClick={changePrevious} className="cursor-pointer text-6xl"></CgChevronLeftR>
-          <CgChevronRightR onClick={changeNext} className="cursor-pointer text-6xl"></CgChevronRightR>
-          <CgChevronDoubleRightR onClick={setLast} className="cursor-pointer text-6xl"></CgChevronDoubleRightR>
         </div>
       </div>
       <Footer />

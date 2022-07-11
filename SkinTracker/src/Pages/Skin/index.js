@@ -34,7 +34,7 @@ function Skin() {
       <Header />
       <div className="bg-local bg-no-repeat bg-cover bg-center bg-[url('https://images.alphacoders.com/656/656584.jpg')]">
         <a href="/">
-          <CgArrowLeftR className="cursor-pointer text-6xl absolute left-20 top-40"></CgArrowLeftR>
+          <CgArrowLeftR className="cursor-pointer text-6xl absolute left-20 top-36"></CgArrowLeftR>
         </a>
 
         <div className = "container mx-auto px-40 py-24">

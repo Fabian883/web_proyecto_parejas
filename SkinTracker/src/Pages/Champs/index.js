@@ -9,7 +9,8 @@ import Mixpanel from "../../services/mixpanel";
 function Champs() {
   const theme = useSelector((state) => state.app.theme);
 
-  const [filter, setFilter] = useState("");
+  // const [filter, setFilter] = useState("");
+  const [filter] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [champs, setChamps] = useState([]);
 
