@@ -50,7 +50,9 @@ function Skins() {
   };
 
   const setLast = (event) => {
-    setCurrentPage(2);
+    // Aqui habria que buscar una manera de traerse el numero total de skins el backend
+    // dividirlo entre 10 que es el numero de skins por pagina y sumarle 1
+    setCurrentPage(5);  
   };
 
   const changePrevious = (event) => {
@@ -60,8 +62,9 @@ function Skins() {
   };
 
   const changeNext = (event) => {
-    if (currentPage < 2) {
-      //ese dos es la cantidad total de páginas que no e como conseguir en el front pero sí en el back
+    // Aqui habria que buscar una manera de traerse el numero total de skins el backend
+    // dividirlo entre 10 que es el numero de skins por pagina y sumarle 1
+    if (currentPage < 5) {
       setCurrentPage(currentPage + 1);
     }
   };
