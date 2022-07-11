@@ -18,6 +18,7 @@ import Mixpanel from "../../services/mixpanel";
 const options = [
   { label: "Precio", value: "price" },
   { label: "Fecha", value: "date" },
+  { label: "Nombre", value: "name" },
 ];
 
 function Skins() {
