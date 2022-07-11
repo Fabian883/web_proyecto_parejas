@@ -58,6 +58,7 @@ function Champ() {
           <div className={`border ${theme.productBorder}`}>
             <div className="flex items-center justify-center shadow-lg bg-black">
                 <p>{champ.name}</p>
+                <p>, ‏‏‎‎&nbsp;</p>
                 <p>{champ.title}</p>
             </div>
             <div className="flex items-center justify-center">
